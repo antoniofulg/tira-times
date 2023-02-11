@@ -9,7 +9,7 @@
   - Max players\*
   - Max substitutes
 - Should be possible to import all players in the list to make the draft.
-- Should be possible to draft teams by player seeds.
+- Should be possible to draft teams by different player categories and seeds.
 
 # Technical requirements
 
