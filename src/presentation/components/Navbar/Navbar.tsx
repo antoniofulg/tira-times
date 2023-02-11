@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icons from "../Icons/Icons";
 
 type NavbarProps = {
@@ -16,11 +17,11 @@ const Navbar = ({ pages }: NavbarProps) => {
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="#" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
             Tira Times
           </span>
-        </a>
+        </Link>
         <button
           data-collapse-toggle="navbar-default"
           type="button"
@@ -40,13 +41,13 @@ const Navbar = ({ pages }: NavbarProps) => {
           >
             {pages.map((page) => (
               <li key={page.label}>
-                <a
-                  href="#"
+                <Link
+                  to={page.path}
                   className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   aria-current="page"
                 >
                   {page.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

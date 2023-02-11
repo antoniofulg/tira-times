@@ -1,4 +1,5 @@
 import { act, render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const makeSut = () => {
@@ -13,7 +14,7 @@ const makeSut = () => {
     },
   ];
 
-  render(<Navbar pages={pages} />);
+  render(<Navbar pages={pages} />, { wrapper: BrowserRouter });
 };
 
 describe("<Navbar />", () => {
