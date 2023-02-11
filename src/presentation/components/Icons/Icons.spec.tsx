@@ -16,6 +16,13 @@ vi.mock("@/presentation/components/Icons/components/X/X.tsx", () => ({
   },
 }));
 
+vi.mock("@/presentation/components/Icons/components/Team/Team.tsx", () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="team" />;
+  },
+}));
+
 describe("<Icons />", () => {
   it("Should render the type bars with the correct Icon", () => {
     render(<Icons type="bars" />);
@@ -27,5 +34,11 @@ describe("<Icons />", () => {
     render(<Icons type="x" />);
 
     expect(screen.getByTestId("x")).toBeInTheDocument();
+  });
+
+  it("Should render the type team with the correct Icon", () => {
+    render(<Icons type="team" />);
+
+    expect(screen.getByTestId("team")).toBeInTheDocument();
   });
 });

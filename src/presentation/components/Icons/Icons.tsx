@@ -1,6 +1,6 @@
-import { Bars, X } from "./components";
+import { Bars, Team, X } from "./components";
 
-type AvailableIcons = "bars" | "x";
+type AvailableIcons = "bars" | "x" | "team";
 
 type IconsProps = {
   type: AvailableIcons;
@@ -12,6 +12,8 @@ const Icons = ({ type }: IconsProps) => {
       return <Bars />;
     case "x":
       return <X />;
+    case "team":
+      return <Team />;
   }
 };
 
