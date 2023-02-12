@@ -3,10 +3,12 @@ import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
-    <main className="h-screen bg-white dark:bg-gray-900">
+    <>
       <Header />
-      <Outlet />
-    </main>
+      <main className="h-screen bg-white dark:bg-gray-900">
+        <Outlet />
+      </main>
+    </>
   );
 };
 
