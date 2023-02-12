@@ -7,25 +7,13 @@ describe("<Card />", () => {
     const title = "Testing title";
     const description = "Testing description";
     const link = "testing-link";
-    const label = "Testing Label";
 
-    render(
-      <Card
-        title={title}
-        description={description}
-        link={link}
-        label={label}
-      ></Card>,
-      { wrapper: BrowserRouter }
-    );
-
-    screen.debug();
+    render(<Card title={title} description={description} link={link}></Card>, {
+      wrapper: BrowserRouter,
+    });
 
     expect(screen.getByRole("heading", { name: title }));
     expect(screen.getByText(description));
-    expect(screen.getByText(label).closest("a")).toHaveAttribute(
-      "href",
-      `/${link}`
-    );
+    expect(screen.getByRole("link")).toHaveAttribute("href", `/${link}`);
   });
 });
