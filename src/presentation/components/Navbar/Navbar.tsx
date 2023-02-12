@@ -15,7 +15,7 @@ const Navbar = ({ pages }: NavbarProps) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900 shadow-md z-50">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link to="/" className="flex items-center">
           <Icons type="team" />
@@ -35,8 +35,8 @@ const Navbar = ({ pages }: NavbarProps) => {
         </button>
         <div className="w-full md:block md:w-auto" id="navbar-default">
           <ul
-            className={`md:static md:flex flex-col p-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:z-auto z-[-1] left-0 w-full top-10 absolute transition-all duration-500 ease-in ${
-              open ? "top-10 opacity-100" : "top-[-400px]"
+            className={`md:static md:flex flex-col p-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:z-auto z-40 left-0 w-full top-12 absolute transition-all duration-500 ease-in ${
+              open ? "opacity-100" : ""
             } md:opacity-100 opacity-0`}
             role="navigation-list"
           >
