@@ -35,9 +35,9 @@ const Navbar = ({ pages }: NavbarProps) => {
         </button>
         <div className="w-full md:block md:w-auto" id="navbar-default">
           <ul
-            className={`md:static md:flex flex-col p-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:z-auto z-40 left-0 w-full top-12 absolute transition-all duration-500 ease-in ${
-              open ? "opacity-100" : ""
-            } md:opacity-100 opacity-0`}
+            className={`md:static md:flex flex-col p-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:z-auto z-40 left-0 w-full top-12 absolute ${
+              open ? "" : "hidden"
+            }`}
             role="navigation-list"
           >
             {pages.map((page) => (
