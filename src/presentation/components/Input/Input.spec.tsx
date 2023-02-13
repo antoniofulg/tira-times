@@ -52,4 +52,17 @@ describe("<Input />", () => {
 
     expect(screen.getByText("hint")).toBeInTheDocument();
   });
+
+  it("Should presents required indicator when passed as prop", () => {
+    render(<Input label="Test" required />);
+
+    expect(screen.getByText("*")).toBeInTheDocument();
+  });
+
+  it("Should presents error message even if hint message was provided as prop", () => {
+    render(<Input label="Test" hint="hint" error="error" />);
+
+    expect(screen.getByText("error")).toBeInTheDocument();
+    expect(screen.queryByText("hint")).not.toBeInTheDocument();
+  });
 });

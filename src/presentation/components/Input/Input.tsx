@@ -23,6 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       className,
       disabled = false,
       valid = false,
+      required = false,
       hint = "",
       ...props
     }: InputProps,
@@ -59,13 +60,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className={error ? "mb-2" : "mb-7"}>
         <label htmlFor={inputId} className={labelClass}>
           {label}
+          {required && <span className="text-red-600">*</span>}
         </label>
         <input
           id={inputId}
           className={inputClass}
-          required
           disabled={disabled}
           type={type}
+          required={required}
           {...props}
           ref={ref}
         />
