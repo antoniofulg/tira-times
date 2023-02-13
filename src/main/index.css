@@ -34,4 +34,28 @@
   .input.valid {
     @apply bg-green-50 border-green-500 text-green-900 placeholder-green-700 focus:ring-green-500 focus:border-green-500 dark:bg-green-100 dark:border-green-400;
   }
+
+  .typo-concluded {
+    @apply text-blue-600 dark:text-blue-500;
+  }
+
+  .typo-current {
+    @apply text-black dark:text-white;
+  }
+
+  .typo-pending {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .status-concluded {
+    @apply border-blue-600 dark:border-blue-500;
+  }
+
+  .status-current {
+    @apply border-black dark:border-white;
+  }
+
+  .status-pending {
+    @apply border-gray-500 dark:border-gray-400;
+  }
 }
