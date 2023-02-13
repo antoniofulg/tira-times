@@ -40,4 +40,10 @@ describe("<Input />", () => {
 
     expect(screen.getByRole("textbox")).toHaveClass("disabled");
   });
+
+  it("Should have different type when provided by props", () => {
+    render(<Input label="Test" type="password" data-testid="test" />);
+
+    expect(screen.getByTestId("test")).toHaveAttribute("type", "password");
+  });
 });
