@@ -10,6 +10,7 @@ type InputProps = React.DetailedHTMLProps<
   type?: string;
   error?: string | boolean;
   valid?: boolean;
+  hint?: string;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -18,10 +19,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       id,
       label,
       type = "text",
-      error,
+      error = false,
       className,
-      disabled,
-      valid,
+      disabled = false,
+      valid = false,
+      hint = "",
       ...props
     }: InputProps,
     ref
@@ -44,6 +46,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       className
     );
 
+    const tipClass = classNames(
+      "text-sm",
+      { "text-gray-500 dark:text-gray-400": !!hint },
+      { "text-red-600 dark:text-red-500": !!error }
+    );
+
+    const showHintText =
+      !!hint || (!valid && !!error && typeof error === "string");
+
     return (
       <div className={error ? "mb-2" : "mb-7"}>
         <label htmlFor={inputId} className={labelClass}>
@@ -58,9 +69,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
           ref={ref}
         />
-        {!valid && !!error && typeof error === "string" && (
-          <p role="alert" className="text-sm text-red-600 dark:text-red-500">
-            {error}
+        {showHintText && (
+          <p role="alert" className={tipClass}>
+            {error || hint}
           </p>
         )}
       </div>

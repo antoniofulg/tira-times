@@ -46,4 +46,10 @@ describe("<Input />", () => {
 
     expect(screen.getByTestId("test")).toHaveAttribute("type", "password");
   });
+
+  it("Should presents hint message when passed as prop", () => {
+    render(<Input label="Test" hint="hint" />);
+
+    expect(screen.getByText("hint")).toBeInTheDocument();
+  });
 });
