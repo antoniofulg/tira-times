@@ -1,10 +1,14 @@
 import { Input } from "@/presentation/components";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { basicInfoFormSchema } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
+import { FieldValues, useForm } from "react-hook-form";
+import {
+  BasicInfoFormType,
+  basicInfoFormSchema,
+} from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
+import { typeChecker } from "@/utils/types/forms";
 
 type BasicInfoFormProps = {
-  onSubmit: () => void;
+  onSubmit: (data: BasicInfoFormType) => void;
 };
 
 const BasicInfoForm = ({ onSubmit }: BasicInfoFormProps) => {
@@ -16,8 +20,12 @@ const BasicInfoForm = ({ onSubmit }: BasicInfoFormProps) => {
     resolver: zodResolver(basicInfoFormSchema),
   });
 
+  const submitHandler = (data: FieldValues) => {
+    if (typeChecker<BasicInfoFormType>(data, "name")) onSubmit(data);
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(submitHandler)}>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-0">
         <div className="sm:col-span-2 md:col-span-4">
           <Input
