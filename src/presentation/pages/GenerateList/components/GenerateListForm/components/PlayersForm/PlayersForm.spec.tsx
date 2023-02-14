@@ -2,25 +2,29 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import PlayersForm from "./PlayersForm";
 
-const submitMethod = vi.fn(() => {
-  return undefined;
-});
+const onSubmit = vi.fn(() => null);
+
+const prevStep = vi.fn(() => null);
+
+const makeSut = () => {
+  render(<PlayersForm onSubmit={onSubmit} prevStep={prevStep} />);
+};
 
 describe("<PlayersForm />", () => {
   beforeEach(() => vi.resetAllMocks());
 
   it("Should not submit with empty form", async () => {
-    render(<PlayersForm onSubmit={submitMethod} />);
+    makeSut();
 
     await act(() => {
       fireEvent.submit(screen.getByRole("button", { name: /próximo/i }));
     });
 
-    expect(submitMethod).not.toBeCalled();
+    expect(onSubmit).not.toBeCalled();
   });
 
   it("Should submit with filled form", async () => {
-    render(<PlayersForm onSubmit={submitMethod} />);
+    makeSut();
 
     act(() => {
       fireEvent.input(screen.getByLabelText(/jogadores/i), {
@@ -39,11 +43,11 @@ describe("<PlayersForm />", () => {
       fireEvent.submit(screen.getByRole("button", { name: /próximo/i }));
     });
 
-    expect(submitMethod).toBeCalled();
+    expect(onSubmit).toBeCalled();
   });
 
   it("Should submit even if substitutes is empty", async () => {
-    render(<PlayersForm onSubmit={submitMethod} />);
+    makeSut();
 
     act(() => {
       fireEvent.input(screen.getByLabelText(/jogadores/i), {
@@ -57,11 +61,11 @@ describe("<PlayersForm />", () => {
       fireEvent.submit(screen.getByRole("button", { name: /próximo/i }));
     });
 
-    expect(submitMethod).toBeCalled();
+    expect(onSubmit).toBeCalled();
   });
 
   it("Should not submit if players is less than 4", async () => {
-    render(<PlayersForm onSubmit={submitMethod} />);
+    makeSut();
 
     act(() => {
       fireEvent.input(screen.getByLabelText(/jogadores/i), {
@@ -75,11 +79,11 @@ describe("<PlayersForm />", () => {
       fireEvent.submit(screen.getByRole("button", { name: /próximo/i }));
     });
 
-    expect(submitMethod).not.toBeCalled();
+    expect(onSubmit).not.toBeCalled();
   });
 
   it("Should not submit if substitutes has a negative value", async () => {
-    render(<PlayersForm onSubmit={submitMethod} />);
+    makeSut();
 
     await act(() => {
       fireEvent.input(screen.getByLabelText(/jogadores/i), {
@@ -98,6 +102,6 @@ describe("<PlayersForm />", () => {
       fireEvent.submit(screen.getByRole("button", { name: /próximo/i }));
     });
 
-    expect(submitMethod).not.toBeCalled();
+    expect(onSubmit).not.toBeCalled();
   });
 });

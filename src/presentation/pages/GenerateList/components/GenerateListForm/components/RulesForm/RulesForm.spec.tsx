@@ -2,23 +2,27 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import RulesForm from "./RulesForm";
 
-const submitMethod = vi.fn(() => {
-  return undefined;
-});
+const onSubmit = vi.fn(() => null);
+
+const prevStep = vi.fn(() => null);
+
+const makeSut = () => {
+  render(<RulesForm onSubmit={onSubmit} prevStep={prevStep} />);
+};
 
 describe("<RulesForm />", () => {
   it("Should submit with empty form", async () => {
-    render(<RulesForm onSubmit={submitMethod} />);
+    makeSut();
 
     await act(() => {
       fireEvent.submit(screen.getByRole("button", { name: /concluir/i }));
     });
 
-    expect(submitMethod).toBeCalled();
+    expect(onSubmit).toBeCalled();
   });
 
   it("Should submit with filled form", async () => {
-    render(<RulesForm onSubmit={submitMethod} />);
+    makeSut();
 
     act(() => {
       fireEvent.input(screen.getByLabelText(/regras/i), {
@@ -32,6 +36,6 @@ describe("<RulesForm />", () => {
       fireEvent.submit(screen.getByRole("button", { name: /concluir/i }));
     });
 
-    expect(submitMethod).toBeCalled();
+    expect(onSubmit).toBeCalled();
   });
 });
