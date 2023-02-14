@@ -1,13 +1,15 @@
 import {
+  BasicInfoFormType,
   GenerateListContextState,
-  GenerateListForm,
   initialValues,
+  PlayersFormType,
+  RulesFormType,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 
 type FormActionTypes =
   | {
       type: "UPDATE_FORM";
-      payload: Partial<GenerateListForm>;
+      payload: BasicInfoFormType | PlayersFormType | RulesFormType;
     }
   | {
       type: "RESET_FORM";
@@ -35,9 +37,9 @@ export const generateListFormReducer = (
     case "GO_TO_STEP":
       return { ...state, step: action.payload };
     case "NEXT_STEP":
-      return { ...state, step: ++state.step };
+      return { ...state, step: state.step + 1 };
     case "PREV_STEP":
-      return { ...state, step: --state.step };
+      return { ...state, step: state.step - 1 };
     case "UPDATE_FORM":
       return { ...state, form: { ...state.form, ...action.payload } };
     case "RESET_FORM":
