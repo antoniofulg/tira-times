@@ -1,18 +1,27 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { rulesFormSchema } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
+import { FieldValues, useForm } from "react-hook-form";
+import {
+  rulesFormSchema,
+  RulesFormType,
+} from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
+import { typeChecker } from "@/utils/types/forms";
 
 type RulesFormProps = {
-  onSubmit: () => void;
+  onSubmit: (data: RulesFormType) => void;
+  prevStep: () => void;
 };
 
-const RulesForm = ({ onSubmit }: RulesFormProps) => {
+const RulesForm = ({ onSubmit, prevStep }: RulesFormProps) => {
   const { register, handleSubmit } = useForm({
     resolver: zodResolver(rulesFormSchema),
   });
 
+  const submitHandler = (data: FieldValues) => {
+    if (typeChecker<RulesFormType>(data, "rules")) onSubmit(data);
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(submitHandler)}>
       <div className="grid grid-cols-1">
         <div>
           <label
@@ -34,6 +43,7 @@ const RulesForm = ({ onSubmit }: RulesFormProps) => {
         <button
           type="button"
           className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          onClick={prevStep}
         >
           Voltar
         </button>
