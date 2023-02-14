@@ -60,18 +60,22 @@ export const rulesFormSchema = z
     rules: z
       .union([z.string().length(0), z.string().min(4)])
       .optional()
-      .transform((e) => (e === "" ? undefined : e)),
+      .transform((value) => (value === "" ? null : value)),
   })
   .partial({
     rules: true,
   });
 
-export type GenerateListForm = z.infer<typeof basicInfoFormSchema> &
-  z.infer<typeof playersFormSchema> &
-  z.infer<typeof rulesFormSchema>;
+export type BasicInfoFormType = z.infer<typeof basicInfoFormSchema>;
+export type PlayersFormType = z.infer<typeof playersFormSchema>;
+export type RulesFormType = z.infer<typeof rulesFormSchema>;
+
+export type GenerateListFormType = BasicInfoFormType &
+  PlayersFormType &
+  RulesFormType;
 
 export type GenerateListContextState = {
-  form: GenerateListForm;
+  form: GenerateListFormType;
   step: number;
 };
 
