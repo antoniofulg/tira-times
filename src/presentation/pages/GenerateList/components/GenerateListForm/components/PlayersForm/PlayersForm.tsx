@@ -1,35 +1,11 @@
 import { Input } from "@/presentation/components";
-import { intTransformer } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { playersFormSchema } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 
 type PlayersFormProps = {
   onSubmit: () => void;
 };
-
-export const playersFormSchema = z
-  .object({
-    players: z.preprocess(
-      (value) => intTransformer(String(value)),
-      z
-        .number()
-        .int({ message: "Informe um valor válido" })
-        .min(4, { message: "Informe um valor maior ou igual a 4" })
-        .finite({ message: "Informe um valor finito" })
-    ),
-    substitutes: z.preprocess(
-      (value) => intTransformer(String(value)),
-      z
-        .number()
-        .int({ message: "Informe um valor válido" })
-        .min(0, { message: "Informe um valor maior ou igual a 0" })
-        .finite({ message: "Informe um valor finito" })
-    ),
-  })
-  .partial({
-    substitutes: true,
-  });
 
 const PlayersForm = ({ onSubmit }: PlayersFormProps) => {
   const {

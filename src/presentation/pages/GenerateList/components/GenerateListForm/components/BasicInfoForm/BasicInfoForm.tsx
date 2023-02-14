@@ -1,38 +1,11 @@
 import { Input } from "@/presentation/components";
-import { intTransformer } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { basicInfoFormSchema } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 
 type BasicInfoFormProps = {
   onSubmit: () => void;
 };
-
-const basicInfoFormSchema = z
-  .object({
-    name: z.string().min(2, { message: "Deve conter pelo menos 2 caracteres" }),
-    place: z
-      .string()
-      .min(2, { message: "Deve conter pelo menos 2 caracteres" }),
-    date: z.date({
-      required_error: "Campo obrigatório",
-      invalid_type_error: "Informe uma data válida",
-    }),
-    time: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, {
-      message: "Informe um horário válido",
-    }),
-    duration: z.preprocess(
-      (value) => intTransformer(String(value)),
-      z
-        .number()
-        .int({ message: "Informe um valor válido" })
-        .min(0, { message: "Informe um valor maior ou igual a 0" })
-        .finite({ message: "Informe um valor finito" })
-    ),
-  })
-  .partial({
-    duration: true,
-  });
 
 const BasicInfoForm = ({ onSubmit }: BasicInfoFormProps) => {
   const {

@@ -1,21 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { rulesFormSchema } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 
 type RulesFormProps = {
   onSubmit: () => void;
 };
-
-const rulesFormSchema = z
-  .object({
-    rules: z
-      .union([z.string().length(0), z.string().min(4)])
-      .optional()
-      .transform((e) => (e === "" ? undefined : e)),
-  })
-  .partial({
-    rules: true,
-  });
 
 const RulesForm = ({ onSubmit }: RulesFormProps) => {
   const { register, handleSubmit } = useForm({
