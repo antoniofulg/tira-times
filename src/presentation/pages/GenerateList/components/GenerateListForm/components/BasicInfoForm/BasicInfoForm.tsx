@@ -90,6 +90,11 @@ const BasicInfoForm = ({ onSubmit }: BasicInfoFormProps) => {
             hint="Em minutos"
             type="number"
             step="1"
+            min="0"
+            aria-invalid={errors.duration ? "true" : "false"}
+            error={
+              errors?.duration?.message && (errors?.duration.message as string)
+            }
             {...register("duration")}
           />
         </div>
