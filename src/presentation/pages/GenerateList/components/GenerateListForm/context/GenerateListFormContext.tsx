@@ -1,6 +1,10 @@
-// import { createContext } from "react";
-import { intTransformer } from "@/utils";
+import { createContext, Dispatch, ReactNode, useReducer } from "react";
 import * as z from "zod";
+import { intTransformer } from "@/utils";
+import {
+  GenerateListFormActions,
+  generateListFormReducer,
+} from "@/presentation/pages/GenerateList/components/GenerateListForm/hooks/GenerateListFormReducer";
 
 export const basicInfoFormSchema = z
   .object({
@@ -61,3 +65,52 @@ export const rulesFormSchema = z
   .partial({
     rules: true,
   });
+
+export type GenerateListForm = z.infer<typeof basicInfoFormSchema> &
+  z.infer<typeof playersFormSchema> &
+  z.infer<typeof rulesFormSchema>;
+
+export type GenerateListContextState = {
+  form: GenerateListForm;
+  step: number;
+};
+
+export const initialValues: GenerateListContextState = {
+  form: {
+    duration: 0,
+    name: "",
+    place: "",
+    date: new Date(),
+    time: "",
+    substitutes: 0,
+    players: 0,
+    rules: "",
+  },
+  step: 0,
+};
+
+const GenerateListFormContext = createContext<{
+  state: GenerateListContextState;
+  dispatch: Dispatch<GenerateListFormActions>;
+}>({
+  state: initialValues,
+  dispatch: () => null,
+});
+
+type GenerateListFormProviderProps = {
+  children: ReactNode;
+};
+
+const GenerateListFormProvider = ({
+  children,
+}: GenerateListFormProviderProps) => {
+  const [state, dispatch] = useReducer(generateListFormReducer, initialValues);
+
+  return (
+    <GenerateListFormContext.Provider value={{ state, dispatch }}>
+      {children}
+    </GenerateListFormContext.Provider>
+  );
+};
+
+export { GenerateListFormProvider, GenerateListFormContext };
