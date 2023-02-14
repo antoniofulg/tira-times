@@ -7,6 +7,8 @@ const submitMethod = vi.fn(() => {
 });
 
 describe("<BasicInfoForm />", () => {
+  beforeEach(() => vi.resetAllMocks());
+
   it("Should not submit with empty form", async () => {
     render(<BasicInfoForm onSubmit={submitMethod} />);
 
@@ -123,6 +125,6 @@ describe("<BasicInfoForm />", () => {
       fireEvent.submit(screen.getByRole("button"));
     });
 
-    expect(submitMethod).toBeCalled();
+    expect(submitMethod).not.toBeCalled();
   });
 });
