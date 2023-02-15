@@ -1,5 +1,5 @@
 import Main from "@/presentation/layouts/Main";
-import Home from "@/presentation/pages/Home/Home";
+import { GenerateList, Home } from "@/presentation/pages";
 import { createBrowserRouter } from "react-router-dom";
 
 export default createBrowserRouter([
@@ -10,6 +10,10 @@ export default createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      {
+        path: "generate-list",
+        element: <GenerateList />,
       },
     ],
   },
