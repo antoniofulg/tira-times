@@ -8,7 +8,7 @@ describe("<Bars />", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <svg
-          class="w-6 h-6 fill-black dark:fill-white"
+          class="icon"
           viewBox="0 0 448 512"
           xmlns="http://www.w3.org/2000/svg"
         >
