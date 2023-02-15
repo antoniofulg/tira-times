@@ -1,15 +1,15 @@
 import {
-  BasicInfoFormType,
+  BasicInfoFormInput,
   GenerateListContextState,
   initialValues,
-  PlayersFormType,
-  RulesFormType,
+  PlayersFormInput,
+  RulesFormInput,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 
 type FormActionTypes =
   | {
       type: "UPDATE_FORM";
-      payload: BasicInfoFormType | PlayersFormType | RulesFormType;
+      payload: BasicInfoFormInput | PlayersFormInput | RulesFormInput;
     }
   | {
       type: "RESET_FORM";

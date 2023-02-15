@@ -1,17 +1,15 @@
 import { Input } from "@/presentation/components";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
-  playersFormInitialValues,
+  PlayersFormInput,
   playersFormSchema,
-  PlayersFormType,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
-import { objectTypeChecker } from "@/utils/types/forms";
 
 type PlayersFormProps = {
-  onSubmit: (data: PlayersFormType) => void;
+  onSubmit: (data: PlayersFormInput) => void;
   prevStep: () => void;
-  defaultValues: PlayersFormType;
+  defaultValues: PlayersFormInput;
 };
 
 const PlayersForm = ({
@@ -28,8 +26,8 @@ const PlayersForm = ({
     defaultValues,
   });
 
-  const submitHandler = (data: FieldValues) => {
-    if (objectTypeChecker(data, playersFormInitialValues)) onSubmit(data);
+  const submitHandler = (data: PlayersFormInput) => {
+    onSubmit(data);
   };
 
   return (

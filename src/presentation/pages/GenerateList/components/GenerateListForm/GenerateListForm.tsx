@@ -3,11 +3,11 @@ import { updateFields } from "@/utils";
 import { useContext } from "react";
 import { BasicInfoForm, PlayersForm, RulesForm } from "./components";
 import {
-  BasicInfoFormType,
   GenerateListFormType,
   GenerateListFormContext,
-  PlayersFormType,
-  RulesFormType,
+  BasicInfoFormInput,
+  PlayersFormInput,
+  RulesFormInput,
   basicInfoFormInitialValues,
   playersFormInitialValues,
   rulesFormInitialValues,
@@ -28,7 +28,7 @@ const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
   };
 
   const nextStep = (
-    payload: BasicInfoFormType | PlayersFormType | RulesFormType
+    payload: BasicInfoFormInput | PlayersFormInput | RulesFormInput
   ) => {
     dispatch({
       type: "UPDATE_FORM",
@@ -50,15 +50,15 @@ const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
     });
   };
 
-  const basicInfoFormData = updateFields<BasicInfoFormType>(
+  const basicInfoFormData = updateFields<BasicInfoFormInput>(
     basicInfoFormInitialValues,
     form
   );
-  const playersFormData = updateFields<PlayersFormType>(
+  const playersFormData = updateFields<PlayersFormInput>(
     playersFormInitialValues,
     form
   );
-  const rulesFormData = updateFields<RulesFormType>(
+  const rulesFormData = updateFields<RulesFormInput>(
     rulesFormInitialValues,
     form
   );

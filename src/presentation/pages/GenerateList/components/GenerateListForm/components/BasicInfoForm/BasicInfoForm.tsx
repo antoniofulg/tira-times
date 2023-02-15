@@ -1,16 +1,14 @@
 import { Input } from "@/presentation/components";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
-  BasicInfoFormType,
+  BasicInfoFormInput,
   basicInfoFormSchema,
-  basicInfoFormInitialValues,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
-import { objectTypeChecker } from "@/utils/types/forms";
 
 type BasicInfoFormProps = {
-  onSubmit: (data: BasicInfoFormType) => void;
-  defaultValues: BasicInfoFormType;
+  onSubmit: (data: BasicInfoFormInput) => void;
+  defaultValues: BasicInfoFormInput;
 };
 
 const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
@@ -23,8 +21,8 @@ const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
     defaultValues,
   });
 
-  const submitHandler = (data: FieldValues) => {
-    if (objectTypeChecker(data, basicInfoFormInitialValues)) onSubmit(data);
+  const submitHandler = (data: BasicInfoFormInput) => {
+    onSubmit(data);
   };
 
   return (
@@ -55,7 +53,7 @@ const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
             type="date"
             aria-invalid={errors.date ? "true" : "false"}
             error={errors?.date?.message && (errors?.date.message as string)}
-            {...register("date", { valueAsDate: true })}
+            {...register("date")}
           />
         </div>
         <div className="md:col-span-2">

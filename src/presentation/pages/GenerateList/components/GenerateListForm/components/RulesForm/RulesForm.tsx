@@ -1,16 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
-  rulesFormInitialValues,
   rulesFormSchema,
-  RulesFormType,
+  RulesFormInput,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
-import { objectTypeChecker } from "@/utils/types/forms";
 
 type RulesFormProps = {
-  onSubmit: (data: RulesFormType) => void;
+  onSubmit: (data: RulesFormInput) => void;
   prevStep: () => void;
-  defaultValues: RulesFormType;
+  defaultValues: RulesFormInput;
 };
 
 const RulesForm = ({ onSubmit, prevStep, defaultValues }: RulesFormProps) => {
@@ -19,8 +17,8 @@ const RulesForm = ({ onSubmit, prevStep, defaultValues }: RulesFormProps) => {
     defaultValues,
   });
 
-  const submitHandler = (data: FieldValues) => {
-    if (objectTypeChecker(data, rulesFormInitialValues)) onSubmit(data);
+  const submitHandler = (data: RulesFormInput) => {
+    onSubmit(data);
   };
 
   return (
