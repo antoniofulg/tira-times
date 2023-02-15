@@ -1,0 +1,25 @@
+@layer components {
+  .typo-concluded {
+    @apply text-blue-600 dark:text-blue-500;
+  }
+
+  .typo-current {
+    @apply text-black dark:text-white;
+  }
+
+  .typo-pending {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .status-concluded {
+    @apply border-blue-600 dark:border-blue-500;
+  }
+
+  .status-current {
+    @apply border-black dark:border-white;
+  }
+
+  .status-pending {
+    @apply border-gray-500 dark:border-gray-400;
+  }
+}
