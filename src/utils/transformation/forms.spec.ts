@@ -1,5 +1,4 @@
-import { describe, it } from "vitest";
-import { intTransformer } from "./forms";
+import { intTransformer, updateFields } from "./forms";
 
 describe("utils/transformation/forms.ts -> intTransformer", () => {
   it("Should return 0 when an unparsable value is provided", () => {
@@ -12,5 +11,29 @@ describe("utils/transformation/forms.ts -> intTransformer", () => {
 
   it("Should return the parsed value when a numeric string is provided", () => {
     expect(intTransformer("2")).toBe(2);
+  });
+});
+
+describe("utils/transformation/forms.ts -> updateFields", () => {
+  it("Should return common fields of initialValues with values of updatedValues", () => {
+    const initialValues = { field1: "", field2: "" };
+    const updatedValues = {
+      field1: "field1",
+      field2: "field2",
+      field3: "field3",
+    };
+    expect(updateFields(initialValues, updatedValues)).toEqual({
+      field1: updatedValues.field1,
+      field2: updatedValues.field2,
+    });
+  });
+
+  it("Should return and empty string if fields of initialValues does not exists in updatedValues", () => {
+    const initialValues = { field1: "", field2: "" };
+    const updatedValues = { field1: "field1" };
+    expect(updateFields(initialValues, updatedValues)).toEqual({
+      ...updatedValues,
+      field2: "",
+    });
   });
 });
