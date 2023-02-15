@@ -11,15 +11,21 @@ import { objectTypeChecker } from "@/utils/types/forms";
 type PlayersFormProps = {
   onSubmit: (data: PlayersFormType) => void;
   prevStep: () => void;
+  defaultValues: PlayersFormType;
 };
 
-const PlayersForm = ({ onSubmit, prevStep }: PlayersFormProps) => {
+const PlayersForm = ({
+  onSubmit,
+  prevStep,
+  defaultValues,
+}: PlayersFormProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(playersFormSchema),
+    defaultValues,
   });
 
   const submitHandler = (data: FieldValues) => {

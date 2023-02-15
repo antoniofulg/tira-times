@@ -10,15 +10,17 @@ import { objectTypeChecker } from "@/utils/types/forms";
 
 type BasicInfoFormProps = {
   onSubmit: (data: BasicInfoFormType) => void;
+  defaultValues: BasicInfoFormType;
 };
 
-const BasicInfoForm = ({ onSubmit }: BasicInfoFormProps) => {
+const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(basicInfoFormSchema),
+    defaultValues,
   });
 
   const submitHandler = (data: FieldValues) => {

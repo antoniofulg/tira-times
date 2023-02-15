@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
+import { rulesFormInitialValues } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 import RulesForm from "./RulesForm";
 
 const onSubmit = vi.fn(() => null);
@@ -7,7 +8,13 @@ const onSubmit = vi.fn(() => null);
 const prevStep = vi.fn(() => null);
 
 const makeSut = () => {
-  render(<RulesForm onSubmit={onSubmit} prevStep={prevStep} />);
+  render(
+    <RulesForm
+      onSubmit={onSubmit}
+      prevStep={prevStep}
+      defaultValues={rulesFormInitialValues}
+    />
+  );
 };
 
 describe("<RulesForm />", () => {

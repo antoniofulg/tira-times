@@ -1,16 +1,26 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
+import { basicInfoFormInitialValues } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 import BasicInfoForm from "./BasicInfoForm";
 
 const submitMethod = vi.fn(() => {
   return undefined;
 });
 
+const makeSut = () => {
+  render(
+    <BasicInfoForm
+      onSubmit={submitMethod}
+      defaultValues={basicInfoFormInitialValues}
+    />
+  );
+};
+
 describe("<BasicInfoForm />", () => {
   beforeEach(() => vi.resetAllMocks());
 
   it("Should not submit with empty form", async () => {
-    render(<BasicInfoForm onSubmit={submitMethod} />);
+    makeSut();
 
     await act(() => {
       fireEvent.submit(screen.getByRole("button", { name: /próximo/i }));
@@ -20,7 +30,7 @@ describe("<BasicInfoForm />", () => {
   });
 
   it("Should submit when form is correctly filled", async () => {
-    render(<BasicInfoForm onSubmit={submitMethod} />);
+    makeSut();
 
     act(() => {
       fireEvent.input(screen.getByLabelText(/nome do racha/i), {
@@ -58,7 +68,7 @@ describe("<BasicInfoForm />", () => {
   });
 
   it("Should submit even if duration is empty", async () => {
-    render(<BasicInfoForm onSubmit={submitMethod} />);
+    makeSut();
 
     act(() => {
       fireEvent.input(screen.getByLabelText(/nome do racha/i), {
@@ -91,7 +101,7 @@ describe("<BasicInfoForm />", () => {
   });
 
   it("Should not submit if duration is a negative value", async () => {
-    render(<BasicInfoForm onSubmit={submitMethod} />);
+    makeSut();
 
     act(() => {
       fireEvent.input(screen.getByLabelText(/nome do racha/i), {

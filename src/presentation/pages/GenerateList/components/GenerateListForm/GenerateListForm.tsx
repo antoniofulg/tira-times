@@ -1,4 +1,5 @@
 import { Stepper } from "@/presentation/components";
+import { updateFields } from "@/utils";
 import { useContext } from "react";
 import { BasicInfoForm, PlayersForm, RulesForm } from "./components";
 import {
@@ -7,6 +8,9 @@ import {
   GenerateListFormContext,
   PlayersFormType,
   RulesFormType,
+  basicInfoFormInitialValues,
+  playersFormInitialValues,
+  rulesFormInitialValues,
 } from "./context/GenerateListFormContext";
 
 type GenerateListFormProps = {
@@ -39,16 +43,39 @@ const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
     });
   };
 
+  const basicInfoFormData = updateFields<BasicInfoFormType>(
+    basicInfoFormInitialValues,
+    form
+  );
+  const playersFormData = updateFields<PlayersFormType>(
+    playersFormInitialValues,
+    form
+  );
+  const rulesFormData = updateFields<RulesFormType>(
+    rulesFormInitialValues,
+    form
+  );
+
   return (
     <>
       <Stepper steps={steps} current={currentStep} />
 
-      {currentStep === 0 && <BasicInfoForm onSubmit={nextStep} />}
+      {currentStep === 0 && (
+        <BasicInfoForm defaultValues={basicInfoFormData} onSubmit={nextStep} />
+      )}
       {currentStep === 1 && (
-        <PlayersForm prevStep={prevStep} onSubmit={nextStep} />
+        <PlayersForm
+          defaultValues={playersFormData}
+          prevStep={prevStep}
+          onSubmit={nextStep}
+        />
       )}
       {currentStep === 2 && (
-        <RulesForm prevStep={prevStep} onSubmit={submitHandler} />
+        <RulesForm
+          defaultValues={rulesFormData}
+          prevStep={prevStep}
+          onSubmit={submitHandler}
+        />
       )}
     </>
   );
