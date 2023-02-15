@@ -8,10 +8,14 @@ import {
 
 export const basicInfoFormSchema = z
   .object({
-    name: z.string().min(2, { message: "Deve conter pelo menos 2 caracteres" }),
+    name: z
+      .string()
+      .min(2, { message: "Deve conter pelo menos 2 caracteres" })
+      .trim(),
     place: z
       .string()
-      .min(2, { message: "Deve conter pelo menos 2 caracteres" }),
+      .min(2, { message: "Deve conter pelo menos 2 caracteres" })
+      .trim(),
     date: z.date({
       required_error: "Campo obrigatório",
       invalid_type_error: "Informe uma data válida",
@@ -73,7 +77,8 @@ export const rulesFormSchema = z
     rules: z
       .union([z.string().length(0), z.string().min(4)])
       .default("")
-      .optional(),
+      .optional()
+      .transform((value) => String(value).trim()),
   })
   .partial({
     rules: true,
