@@ -4,8 +4,9 @@ import { FieldValues, useForm } from "react-hook-form";
 import {
   BasicInfoFormType,
   basicInfoFormSchema,
+  basicInfoFormInitialValues,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
-import { typeChecker } from "@/utils/types/forms";
+import { objectTypeChecker } from "@/utils/types/forms";
 
 type BasicInfoFormProps = {
   onSubmit: (data: BasicInfoFormType) => void;
@@ -21,7 +22,7 @@ const BasicInfoForm = ({ onSubmit }: BasicInfoFormProps) => {
   });
 
   const submitHandler = (data: FieldValues) => {
-    if (typeChecker<BasicInfoFormType>(data, "name")) onSubmit(data);
+    if (objectTypeChecker(data, basicInfoFormInitialValues)) onSubmit(data);
   };
 
   return (

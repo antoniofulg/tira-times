@@ -1,10 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues, useForm } from "react-hook-form";
 import {
+  rulesFormInitialValues,
   rulesFormSchema,
   RulesFormType,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
-import { typeChecker } from "@/utils/types/forms";
+import { objectTypeChecker } from "@/utils/types/forms";
 
 type RulesFormProps = {
   onSubmit: (data: RulesFormType) => void;
@@ -17,7 +18,7 @@ const RulesForm = ({ onSubmit, prevStep }: RulesFormProps) => {
   });
 
   const submitHandler = (data: FieldValues) => {
-    if (typeChecker<RulesFormType>(data, "rules")) onSubmit(data);
+    if (objectTypeChecker(data, rulesFormInitialValues)) onSubmit(data);
   };
 
   return (
