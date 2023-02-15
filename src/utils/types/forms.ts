@@ -1,4 +1,4 @@
-type ObjectExtender = { [keys: string]: unknown };
+import { ObjectExtender } from "@/utils/types";
 
 export const typeChecker = <T extends ObjectExtender>(
   data: ObjectExtender,
