@@ -111,4 +111,12 @@ describe("<PlayersForm />", () => {
 
     expect(onSubmit).not.toBeCalled();
   });
+
+  it("Should call prevStep on 'Voltar' button click", () => {
+    makeSut();
+
+    screen.getByRole("button", { name: /voltar/i }).click();
+
+    expect(prevStep).toBeCalled();
+  });
 });
