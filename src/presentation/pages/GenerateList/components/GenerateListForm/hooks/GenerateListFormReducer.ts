@@ -35,14 +35,26 @@ export const generateListFormReducer = (
 ): GenerateListContextState => {
   switch (action.type) {
     case "GO_TO_STEP":
-      return { ...state, step: action.payload };
+      return { ...state, currentStep: action.payload };
     case "NEXT_STEP":
-      return { ...state, step: state.step + 1 };
+      return nextStep(state);
     case "PREV_STEP":
-      return { ...state, step: state.step - 1 };
+      return prevStep(state);
     case "UPDATE_FORM":
       return { ...state, form: { ...state.form, ...action.payload } };
     case "RESET_FORM":
       return { ...initialValues };
   }
+};
+
+const nextStep = (state: GenerateListContextState) => {
+  const { currentStep, steps } = state;
+  steps[currentStep].concluded = true;
+  return { ...state, currentStep: currentStep + 1, steps };
+};
+
+const prevStep = (state: GenerateListContextState) => {
+  const { currentStep, steps } = state;
+  steps[currentStep - 1].concluded = false;
+  return { ...state, currentStep: currentStep - 1, steps };
 };

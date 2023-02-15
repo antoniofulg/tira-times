@@ -96,9 +96,15 @@ export type GenerateListFormType = BasicInfoFormType &
   PlayersFormType &
   RulesFormType;
 
+export type Step = {
+  label: string;
+  concluded: boolean;
+};
+
 export type GenerateListContextState = {
   form: GenerateListFormType;
-  step: number;
+  currentStep: number;
+  steps: Step[];
 };
 
 export const initialValues: GenerateListContextState = {
@@ -107,7 +113,12 @@ export const initialValues: GenerateListContextState = {
     ...playersFormInitialValues,
     ...rulesFormInitialValues,
   },
-  step: 0,
+  currentStep: 0,
+  steps: [
+    { label: "Informações", concluded: false },
+    { label: "Jogadores", concluded: false },
+    { label: "Regras", concluded: false },
+  ],
 };
 
 const GenerateListFormContext = createContext<{
