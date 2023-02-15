@@ -43,6 +43,13 @@ const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
     });
   };
 
+  const goToStep = (index: number) => {
+    dispatch({
+      type: "GO_TO_STEP",
+      payload: index,
+    });
+  };
+
   const basicInfoFormData = updateFields<BasicInfoFormType>(
     basicInfoFormInitialValues,
     form
@@ -58,7 +65,7 @@ const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
 
   return (
     <>
-      <Stepper steps={steps} current={currentStep} />
+      <Stepper steps={steps} current={currentStep} goToStep={goToStep} />
 
       {currentStep === 0 && (
         <BasicInfoForm defaultValues={basicInfoFormData} onSubmit={nextStep} />

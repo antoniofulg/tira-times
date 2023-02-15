@@ -35,7 +35,7 @@ export const generateListFormReducer = (
 ): GenerateListContextState => {
   switch (action.type) {
     case "GO_TO_STEP":
-      return { ...state, currentStep: action.payload };
+      return goToStep(state, action.payload);
     case "NEXT_STEP":
       return nextStep(state);
     case "PREV_STEP":
@@ -57,4 +57,18 @@ const prevStep = (state: GenerateListContextState) => {
   const { currentStep, steps } = state;
   steps[currentStep - 1].concluded = false;
   return { ...state, currentStep: currentStep - 1, steps };
+};
+
+const goToStep = (state: GenerateListContextState, payload: number) => {
+  const { currentStep, steps } = state;
+  if (currentStep > payload)
+    return {
+      ...state,
+      currentStep: payload,
+      steps: steps.map((step, index) => ({
+        ...step,
+        concluded: index < payload,
+      })),
+    };
+  return state;
 };

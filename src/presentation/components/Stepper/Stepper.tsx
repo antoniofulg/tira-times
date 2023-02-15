@@ -3,6 +3,7 @@ import classNames from "classnames";
 type StepperProps = {
   steps: Step[];
   current: number;
+  goToStep: (index: number) => void;
 };
 
 type Step = {
@@ -10,10 +11,12 @@ type Step = {
   concluded: boolean;
 };
 
-const Stepper = ({ steps, current }: StepperProps) => {
+const Stepper = ({ steps, current, goToStep }: StepperProps) => {
   return (
     <ol className="items-center w-full justify-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0 mb-6">
       {steps.map((step, index) => {
+        const clickable = current > index;
+
         const stepStatus = step.concluded
           ? "concluded"
           : index === current
@@ -22,7 +25,8 @@ const Stepper = ({ steps, current }: StepperProps) => {
 
         const liClass = classNames(
           "flex items-center space-x-2.5",
-          `typo-${stepStatus}`
+          `typo-${stepStatus}`,
+          clickable ? "cursor-pointer" : "cursor-not-allowed"
         );
 
         const numberClass = classNames(
@@ -31,7 +35,11 @@ const Stepper = ({ steps, current }: StepperProps) => {
         );
 
         return (
-          <li key={step.label} className={liClass}>
+          <li
+            key={step.label}
+            className={liClass}
+            onClick={() => (clickable ? goToStep(index) : null)}
+          >
             <span className={numberClass}>{index + 1}</span>
             <span>
               <h3 className="font-medium leading-tight">{step.label}</h3>
