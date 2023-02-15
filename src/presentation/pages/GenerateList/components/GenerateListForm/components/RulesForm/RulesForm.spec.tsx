@@ -49,7 +49,9 @@ describe("<RulesForm />", () => {
   it("Should call prevStep on 'Voltar' button click", () => {
     makeSut();
 
-    screen.getByRole("button", { name: /voltar/i }).click();
+    act(() => {
+      screen.getByRole("button", { name: /voltar/i }).click();
+    });
 
     expect(prevStep).toBeCalled();
   });
