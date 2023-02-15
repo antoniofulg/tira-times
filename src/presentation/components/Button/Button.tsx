@@ -20,7 +20,12 @@ const Button = ({
   role = "button",
   ...props
 }: ButtonProps) => {
-  const buttonClass = classNames("button", color, { disabled }, className);
+  const buttonClass = classNames(
+    "button",
+    color,
+    { disabled, loading },
+    className
+  );
 
   return (
     <button
@@ -32,7 +37,7 @@ const Button = ({
       {loading ? (
         <Icons type="volleyball" className="w-5 h-5 mx-4 animate-spin"></Icons>
       ) : (
-        <span className="button-text">{children}</span>
+        children
       )}
     </button>
   );
