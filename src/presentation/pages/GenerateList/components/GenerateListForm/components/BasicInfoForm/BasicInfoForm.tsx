@@ -15,7 +15,7 @@ const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(basicInfoFormSchema),
     defaultValues,
@@ -82,7 +82,7 @@ const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
         </div>
       </div>
       <div className="flex justify-end">
-        <Button type="submit" color="primary">
+        <Button type="submit" color="primary" loading={isSubmitting}>
           Próximo
         </Button>
       </div>

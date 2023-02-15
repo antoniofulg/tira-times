@@ -13,7 +13,11 @@ type RulesFormProps = {
 };
 
 const RulesForm = ({ onSubmit, prevStep, defaultValues }: RulesFormProps) => {
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm({
     resolver: zodResolver(rulesFormSchema),
     defaultValues,
   });
@@ -45,7 +49,7 @@ const RulesForm = ({ onSubmit, prevStep, defaultValues }: RulesFormProps) => {
         <Button color="secondary" onClick={prevStep}>
           Voltar
         </Button>
-        <Button type="submit" color="primary">
+        <Button type="submit" color="primary" loading={isSubmitting}>
           Concluir
         </Button>
       </div>

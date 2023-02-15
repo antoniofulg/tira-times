@@ -20,7 +20,7 @@ const PlayersForm = ({
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(playersFormSchema),
     defaultValues,
@@ -66,7 +66,7 @@ const PlayersForm = ({
         <Button color="secondary" onClick={prevStep}>
           Voltar
         </Button>
-        <Button type="submit" color="primary">
+        <Button type="submit" color="primary" loading={isSubmitting}>
           Próximo
         </Button>
       </div>
