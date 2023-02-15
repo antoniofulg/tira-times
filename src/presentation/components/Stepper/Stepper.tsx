@@ -18,7 +18,7 @@ const Stepper = ({ steps, current, goToStep }: StepperProps) => {
         const clickable = current > index;
 
         const stepStatus = step.concluded
-          ? "concluded"
+          ? "concluded border-blue-600"
           : index === current
           ? "current"
           : "pending";
