@@ -12,5 +12,11 @@ export const objectTypeChecker = <T extends ObjectExtender>(
   object: T
 ): data is T => {
   const keys = Object.keys(object);
-  return keys.every((key) => typeChecker<T>(data, key));
+  return keys.every((key) => fieldTypeChecker<T>(data, object, key));
 };
+
+export const fieldTypeChecker = <T extends ObjectExtender>(
+  data: ObjectExtender,
+  object: T,
+  field: string
+): data is T => typeof data[field] === typeof object[field];

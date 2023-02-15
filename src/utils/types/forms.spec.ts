@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { objectTypeChecker, typeChecker } from "./forms";
+import { fieldTypeChecker, objectTypeChecker, typeChecker } from "./forms";
 
 describe("utils/types/forms.ts -> typeChecker", () => {
   type Data = { field: boolean };
@@ -55,5 +55,19 @@ describe("utils/types/forms.ts -> objectTypeChecker", () => {
     });
 
     expect(objectTypeChecker(data, object)).toBe(true);
+  });
+});
+
+describe("utils/types/forms.ts -> fieldTypeChecker", () => {
+  it("Should return true when field has the same type between provided objects", () => {
+    expect(fieldTypeChecker({ field: true }, { field: false }, "field")).toBe(
+      true
+    );
+  });
+
+  it("Should return false when field has a different type between provided objects", () => {
+    expect(fieldTypeChecker({ field: true }, { field: 0 }, "field")).toBe(
+      false
+    );
   });
 });
