@@ -12,7 +12,9 @@ export const updateFields = <T extends ObjectExtender>(
 ): T => {
   const fields = Object.keys(initialValues);
   fields.forEach(
-    (field) => (initialValues[field] = updatedValues[field] || "")
+    (field) =>
+      (initialValues[field] =
+        updatedValues[field] !== undefined ? updatedValues[field] : "")
   );
   return initialValues as T;
 };

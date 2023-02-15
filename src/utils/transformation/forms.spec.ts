@@ -36,4 +36,16 @@ describe("utils/transformation/forms.ts -> updateFields", () => {
       field2: "",
     });
   });
+
+  it("Should return the value of updatedValues even if the boolean cast of value is false", () => {
+    const initialValues = { field1: "", field2: 0 };
+    const updatedValues = {
+      field1: "field1",
+      field2: 0,
+    };
+    expect(updateFields(initialValues, updatedValues)).toEqual({
+      field1: updatedValues.field1,
+      field2: updatedValues.field2,
+    });
+  });
 });
