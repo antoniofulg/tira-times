@@ -5,9 +5,7 @@ type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & {
-  id?: string;
   label: string;
-  type?: string;
   error?: string | boolean;
   valid?: boolean;
   hint?: string;
