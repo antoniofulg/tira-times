@@ -32,6 +32,14 @@ export const basicInfoFormSchema = z
     duration: true,
   });
 
+export const basicInfoFormInitialValues = {
+  name: "",
+  place: "",
+  date: new Date(),
+  time: "",
+  duration: 0,
+};
+
 export const playersFormSchema = z
   .object({
     players: z.preprocess(
@@ -55,16 +63,25 @@ export const playersFormSchema = z
     substitutes: true,
   });
 
+export const playersFormInitialValues = {
+  players: 0,
+  substitutes: 0,
+};
+
 export const rulesFormSchema = z
   .object({
     rules: z
       .union([z.string().length(0), z.string().min(4)])
-      .optional()
-      .transform((value) => (value === "" ? null : value)),
+      .default("")
+      .optional(),
   })
   .partial({
     rules: true,
   });
+
+export const rulesFormInitialValues = {
+  rules: "",
+};
 
 export type BasicInfoFormType = z.infer<typeof basicInfoFormSchema>;
 export type PlayersFormType = z.infer<typeof playersFormSchema>;
@@ -81,14 +98,9 @@ export type GenerateListContextState = {
 
 export const initialValues: GenerateListContextState = {
   form: {
-    duration: 0,
-    name: "",
-    place: "",
-    date: new Date(),
-    time: "",
-    substitutes: 0,
-    players: 0,
-    rules: "",
+    ...basicInfoFormInitialValues,
+    ...playersFormInitialValues,
+    ...rulesFormInitialValues,
   },
   step: 0,
 };
