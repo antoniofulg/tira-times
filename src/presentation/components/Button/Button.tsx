@@ -1,16 +1,16 @@
 import classNames from "classnames";
 
-type ButtonTypes = "primary" | "secondary";
+type ButtonTypes = "primary" | "secondary" | "unstyled";
 
 type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  color: ButtonTypes;
+  color?: ButtonTypes;
 };
 
 const Button = ({
-  color = "primary",
+  color = "unstyled",
   className,
   children,
   disabled,
