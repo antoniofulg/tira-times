@@ -3,23 +3,13 @@ import {
   GenerateListFormActions,
   generateListFormReducer,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/hooks/GenerateListFormReducer";
+import { Step } from "@/presentation/components/Stepper/Stepper";
 import {
   basicInfoFormInitialValues,
-  BasicInfoFormInput,
+  GenerateListFormType,
   playersFormInitialValues,
-  PlayersFormInput,
   rulesFormInitialValues,
-  RulesFormInput,
 } from "@/domain/schemas";
-
-export type GenerateListFormType = BasicInfoFormInput &
-  PlayersFormInput &
-  RulesFormInput;
-
-export type Step = {
-  label: string;
-  concluded: boolean;
-};
 
 export type GenerateListContextState = {
   form: GenerateListFormType;

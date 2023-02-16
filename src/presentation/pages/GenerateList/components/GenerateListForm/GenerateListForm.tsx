@@ -1,6 +1,7 @@
 import {
   basicInfoFormInitialValues,
   BasicInfoFormInput,
+  GenerateListFormType,
   playersFormInitialValues,
   PlayersFormInput,
   rulesFormInitialValues,
@@ -10,10 +11,7 @@ import { Stepper } from "@/presentation/components";
 import { updateFields } from "@/utils";
 import { useContext } from "react";
 import { BasicInfoForm, PlayersForm, RulesForm } from "./components";
-import {
-  GenerateListFormType,
-  GenerateListFormContext,
-} from "./context/GenerateListFormContext";
+import { GenerateListFormContext } from "./context/GenerateListFormContext";
 
 type GenerateListFormProps = {
   formSubmit: (form: GenerateListFormType) => void;
