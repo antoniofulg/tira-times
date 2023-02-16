@@ -6,14 +6,14 @@ type StepperProps = {
   goToStep: (index: number) => void;
 };
 
-type Step = {
+export type Step = {
   label: string;
   concluded: boolean;
 };
 
 const Stepper = ({ steps, current, goToStep }: StepperProps) => {
   return (
-    <ol className="items-center w-full justify-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0 mb-6">
+    <ol className="items-center justify-center w-full mb-6 space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
       {steps.map((step, index) => {
         const clickable = current > index;
 
