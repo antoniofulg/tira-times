@@ -1,3 +1,11 @@
+import {
+  basicInfoFormInitialValues,
+  BasicInfoFormInput,
+  playersFormInitialValues,
+  PlayersFormInput,
+  rulesFormInitialValues,
+  RulesFormInput,
+} from "@/domain/schemas";
 import { Stepper } from "@/presentation/components";
 import { updateFields } from "@/utils";
 import { useContext } from "react";
@@ -5,12 +13,6 @@ import { BasicInfoForm, PlayersForm, RulesForm } from "./components";
 import {
   GenerateListFormType,
   GenerateListFormContext,
-  BasicInfoFormInput,
-  PlayersFormInput,
-  RulesFormInput,
-  basicInfoFormInitialValues,
-  playersFormInitialValues,
-  rulesFormInitialValues,
 } from "./context/GenerateListFormContext";
 
 type GenerateListFormProps = {

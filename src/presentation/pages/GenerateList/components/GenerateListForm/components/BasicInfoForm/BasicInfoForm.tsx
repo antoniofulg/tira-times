@@ -1,10 +1,7 @@
+import { BasicInfoFormInput, basicInfoFormSchema } from "@/domain/schemas";
 import { Button, Input } from "@/presentation/components";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import {
-  BasicInfoFormInput,
-  basicInfoFormSchema,
-} from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 
 type BasicInfoFormProps = {
   onSubmit: (data: BasicInfoFormInput) => void;

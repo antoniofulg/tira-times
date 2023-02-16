@@ -1,10 +1,7 @@
+import { PlayersFormInput, playersFormSchema } from "@/domain/schemas";
 import { Button, Input } from "@/presentation/components";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import {
-  PlayersFormInput,
-  playersFormSchema,
-} from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 
 type PlayersFormProps = {
   onSubmit: (data: PlayersFormInput) => void;

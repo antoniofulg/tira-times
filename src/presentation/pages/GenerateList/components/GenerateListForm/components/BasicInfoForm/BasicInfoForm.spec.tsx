@@ -1,6 +1,6 @@
+import { basicInfoFormInitialValues } from "@/domain/schemas";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { basicInfoFormInitialValues } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 import BasicInfoForm from "./BasicInfoForm";
 
 const submitMethod = vi.fn(() => {

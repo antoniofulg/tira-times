@@ -1,10 +1,7 @@
+import { RulesFormInput, rulesFormSchema } from "@/domain/schemas";
+import { Button } from "@/presentation/components";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import {
-  rulesFormSchema,
-  RulesFormInput,
-} from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
-import { Button } from "@/presentation/components";
 
 type RulesFormProps = {
   onSubmit: (data: RulesFormInput) => void;

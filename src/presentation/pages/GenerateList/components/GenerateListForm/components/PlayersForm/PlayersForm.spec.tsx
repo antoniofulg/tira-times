@@ -1,6 +1,6 @@
+import { playersFormInitialValues } from "@/domain/schemas";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { playersFormInitialValues } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 import PlayersForm from "./PlayersForm";
 
 const onSubmit = vi.fn(() => null);

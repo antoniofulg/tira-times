@@ -1,9 +1,11 @@
 import {
   BasicInfoFormInput,
-  GenerateListContextState,
-  initialValues,
   PlayersFormInput,
   RulesFormInput,
+} from "@/domain/schemas";
+import {
+  GenerateListContextState,
+  initialValues,
 } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 
 type FormActionTypes =

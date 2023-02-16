@@ -1,6 +1,6 @@
+import { rulesFormInitialValues } from "@/domain/schemas";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { rulesFormInitialValues } from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
 import RulesForm from "./RulesForm";
 
 const onSubmit = vi.fn(() => null);
