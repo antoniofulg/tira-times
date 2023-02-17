@@ -1,8 +1,8 @@
 import { intTransformer } from "@/utils";
 import { z } from "zod";
 
-export const basicInfoFormSchema = z.object({
-  name: z
+export const eventFormSchema = z.object({
+  matchName: z
     .string()
     .min(2, { message: "Deve conter pelo menos 2 caracteres" })
     .trim(),
@@ -31,12 +31,12 @@ export const basicInfoFormSchema = z.object({
     }),
 });
 
-export const basicInfoFormInitialValues = {
-  name: "",
+export const eventFormInitialValues = {
+  matchName: "",
   place: "",
   date: "",
   time: "",
   duration: "",
 };
 
-export type BasicInfoFormInput = z.input<typeof basicInfoFormSchema>;
+export type EventFormInput = z.input<typeof eventFormSchema>;

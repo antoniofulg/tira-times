@@ -1,11 +1,14 @@
-import { BasicInfoFormInput, basicInfoFormSchema } from "@/domain/schemas";
 import { Button, Input } from "@/presentation/components";
+import {
+  EventFormInput,
+  eventFormSchema,
+} from "@/validation/schemas/match-info";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 type BasicInfoFormProps = {
-  onSubmit: (data: BasicInfoFormInput) => void;
-  defaultValues: BasicInfoFormInput;
+  onSubmit: (data: EventFormInput) => void;
+  defaultValues: EventFormInput;
 };
 
 const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
@@ -14,11 +17,11 @@ const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    resolver: zodResolver(basicInfoFormSchema),
+    resolver: zodResolver(eventFormSchema),
     defaultValues,
   });
 
-  const submitHandler = (data: BasicInfoFormInput) => {
+  const submitHandler = (data: EventFormInput) => {
     onSubmit(data);
   };
 
@@ -29,9 +32,12 @@ const BasicInfoForm = ({ onSubmit, defaultValues }: BasicInfoFormProps) => {
           <Input
             label="Nome do Racha"
             required
-            aria-invalid={errors.name ? "true" : "false"}
-            error={errors?.name?.message && (errors?.name.message as string)}
-            {...register("name")}
+            aria-invalid={errors.matchName ? "true" : "false"}
+            error={
+              errors?.matchName?.message &&
+              (errors?.matchName.message as string)
+            }
+            {...register("matchName")}
           />
         </div>
         <div className="md:col-span-2">

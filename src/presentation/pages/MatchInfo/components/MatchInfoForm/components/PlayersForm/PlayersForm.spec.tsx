@@ -1,4 +1,4 @@
-import { playersFormInitialValues } from "@/domain/schemas";
+import { playersFormInitialValues } from "@/validation/schemas/match-info";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import PlayersForm from "./PlayersForm";

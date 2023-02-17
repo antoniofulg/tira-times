@@ -1,7 +1,7 @@
-import { basicInfoFormInitialValues } from "@/domain/schemas";
+import { eventFormInitialValues } from "@/validation/schemas/match-info";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import BasicInfoForm from "./BasicInfoForm";
+import BasicInfoForm from "./EventForm";
 
 const submitMethod = vi.fn(() => {
   return undefined;
@@ -11,7 +11,7 @@ const makeSut = () => {
   render(
     <BasicInfoForm
       onSubmit={submitMethod}
-      defaultValues={basicInfoFormInitialValues}
+      defaultValues={eventFormInitialValues}
     />
   );
 };

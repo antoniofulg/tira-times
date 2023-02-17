@@ -1,17 +1,17 @@
 import {
-  BasicInfoFormInput,
+  MatchInfoContextState,
+  initialValues,
+} from "@/presentation/pages/MatchInfo/components/MatchInfoForm/context/MatchInfoFormContext";
+import {
+  EventFormInput,
   PlayersFormInput,
   RulesFormInput,
-} from "@/domain/schemas";
-import {
-  GenerateListContextState,
-  initialValues,
-} from "@/presentation/pages/GenerateList/components/GenerateListForm/context/GenerateListFormContext";
+} from "@/validation/schemas/match-info";
 
 type FormActionTypes =
   | {
       type: "UPDATE_FORM";
-      payload: BasicInfoFormInput | PlayersFormInput | RulesFormInput;
+      payload: EventFormInput | PlayersFormInput | RulesFormInput;
     }
   | {
       type: "RESET_FORM";
@@ -29,12 +29,12 @@ type StepActionTypes =
       payload: number;
     };
 
-export type GenerateListFormActions = FormActionTypes | StepActionTypes;
+export type MatchInfoFormActions = FormActionTypes | StepActionTypes;
 
-export const generateListFormReducer = (
-  state: GenerateListContextState,
-  action: GenerateListFormActions
-): GenerateListContextState => {
+export const matchInfoFormReducer = (
+  state: MatchInfoContextState,
+  action: MatchInfoFormActions
+): MatchInfoContextState => {
   switch (action.type) {
     case "GO_TO_STEP":
       return goToStep(state, action.payload);
@@ -49,19 +49,19 @@ export const generateListFormReducer = (
   }
 };
 
-const nextStep = (state: GenerateListContextState) => {
+const nextStep = (state: MatchInfoContextState) => {
   const { currentStep, steps } = state;
   steps[currentStep].concluded = true;
   return { ...state, currentStep: currentStep + 1, steps };
 };
 
-const prevStep = (state: GenerateListContextState) => {
+const prevStep = (state: MatchInfoContextState) => {
   const { currentStep, steps } = state;
   steps[currentStep - 1].concluded = false;
   return { ...state, currentStep: currentStep - 1, steps };
 };
 
-const goToStep = (state: GenerateListContextState, payload: number) => {
+const goToStep = (state: MatchInfoContextState, payload: number) => {
   const { currentStep, steps } = state;
   if (currentStep > payload)
     return {

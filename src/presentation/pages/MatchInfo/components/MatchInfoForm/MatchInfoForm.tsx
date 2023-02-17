@@ -1,34 +1,30 @@
+import { Stepper } from "@/presentation/components";
+import { updateFields } from "@/utils";
 import {
-  basicInfoFormInitialValues,
-  BasicInfoFormInput,
-  GenerateListFormType,
+  eventFormInitialValues,
+  EventFormInput,
   playersFormInitialValues,
   PlayersFormInput,
   rulesFormInitialValues,
   RulesFormInput,
-} from "@/domain/schemas";
-import { Stepper } from "@/presentation/components";
-import { updateFields } from "@/utils";
+} from "@/validation/schemas/match-info";
 import { useContext } from "react";
-import { BasicInfoForm, PlayersForm, RulesForm } from "./components";
-import { GenerateListFormContext } from "./context/GenerateListFormContext";
+import { EventForm, PlayersForm, RulesForm } from "./components";
+import { MatchInfoFormContext } from "./context/MatchInfoFormContext";
 
-type GenerateListFormProps = {
-  formSubmit: (form: GenerateListFormType) => void;
-};
-
-const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
+const MatchInfoForm = () => {
   const {
     state: { form, currentStep, steps },
     dispatch,
-  } = useContext(GenerateListFormContext);
+  } = useContext(MatchInfoFormContext);
 
-  const submitHandler = () => {
-    formSubmit(form);
+  const submitHandler = async () => {
+    // await saveGeneratedList.save(form);
+    alert("Salvo!");
   };
 
   const nextStep = (
-    payload: BasicInfoFormInput | PlayersFormInput | RulesFormInput
+    payload: EventFormInput | PlayersFormInput | RulesFormInput
   ) => {
     dispatch({
       type: "UPDATE_FORM",
@@ -50,8 +46,8 @@ const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
     });
   };
 
-  const basicInfoFormData = updateFields<BasicInfoFormInput>(
-    basicInfoFormInitialValues,
+  const basicInfoFormData = updateFields<EventFormInput>(
+    eventFormInitialValues,
     form
   );
   const playersFormData = updateFields<PlayersFormInput>(
@@ -68,7 +64,7 @@ const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
       <Stepper steps={steps} current={currentStep} goToStep={goToStep} />
 
       {currentStep === 0 && (
-        <BasicInfoForm defaultValues={basicInfoFormData} onSubmit={nextStep} />
+        <EventForm defaultValues={basicInfoFormData} onSubmit={nextStep} />
       )}
       {currentStep === 1 && (
         <PlayersForm
@@ -88,4 +84,4 @@ const GenerateListForm = ({ formSubmit }: GenerateListFormProps) => {
   );
 };
 
-export default GenerateListForm;
+export default MatchInfoForm;

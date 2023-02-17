@@ -1,5 +1,5 @@
 import Main from "@/presentation/layouts/Main";
-import { GenerateList, Home } from "@/presentation/pages";
+import { MatchInfo, Home } from "@/presentation/pages";
 import { createBrowserRouter } from "react-router-dom";
 
 export default createBrowserRouter([
@@ -12,8 +12,8 @@ export default createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "generate-list",
-        element: <GenerateList />,
+        path: "match-info",
+        element: <MatchInfo />,
       },
     ],
   },

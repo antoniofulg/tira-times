@@ -1,5 +1,8 @@
-import { RulesFormInput, rulesFormSchema } from "@/domain/schemas";
 import { Button } from "@/presentation/components";
+import {
+  RulesFormInput,
+  rulesFormSchema,
+} from "@/validation/schemas/match-info";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
