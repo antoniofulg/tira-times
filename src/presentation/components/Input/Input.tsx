@@ -22,6 +22,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled = false,
       valid = false,
       required = false,
+      readOnly = false,
       hint = "",
       ...props
     }: InputProps,
@@ -42,6 +43,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         error,
         valid,
       },
+      { "read-only": readOnly },
       className
     );
 
@@ -55,7 +57,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       !!hint || (!valid && !!error && typeof error === "string");
 
     return (
-      <div className={error ? "mb-2" : "mb-7"}>
+      <div className={showHintText ? "mb-2" : "mb-7"}>
         <label htmlFor={inputId} className={labelClass}>
           {label}
           {required && <span className="text-red-600">*</span>}
@@ -66,6 +68,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           type={type}
           required={required}
+          readOnly={readOnly}
           {...props}
           ref={ref}
         />
