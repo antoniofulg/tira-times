@@ -7,10 +7,10 @@ import {
   PlayersFormInput,
   rulesFormInitialValues,
   RulesFormInput,
-} from "@/validation/schemas/match-info";
+} from "@/presentation/pages/MatchInfo/schemas/match-info";
 import { useContext } from "react";
 import { EventForm, PlayersForm, RulesForm } from "./components";
-import { MatchInfoFormContext } from "./context/MatchInfoFormContext";
+import { MatchInfoFormContext } from "@/presentation/pages/MatchInfo/context/MatchInfoFormContext";
 
 const MatchInfoForm = () => {
   const {

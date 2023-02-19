@@ -1,4 +1,4 @@
-import { MatchInfoFormProvider } from "./components/MatchInfoForm/context/MatchInfoFormContext";
+import { MatchInfoFormProvider } from "./context/MatchInfoFormContext";
 import MatchInfoForm from "./components/MatchInfoForm/MatchInfoForm";
 
 const MatchInfo = () => {

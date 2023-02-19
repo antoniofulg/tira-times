@@ -1,4 +1,4 @@
-import { rulesFormInitialValues } from "@/validation/schemas/match-info";
+import { rulesFormInitialValues } from "@/presentation/pages/MatchInfo/schemas/match-info";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import RulesForm from "./RulesForm";
