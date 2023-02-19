@@ -1,5 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import { vi } from "vitest";
 import Navbar from "./Navbar";
 
 const makeSut = () => {
@@ -17,6 +18,20 @@ const makeSut = () => {
   render(<Navbar pages={pages} />, { wrapper: BrowserRouter });
 };
 
+vi.mock("@/presentation/components/Icons/components/X/X.tsx", () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="x" />;
+  },
+}));
+
+vi.mock("@/presentation/components/Icons/components/Bars/Bars.tsx", () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="bars" />;
+  },
+}));
+
 describe("<Navbar />", () => {
   it("Should render navbar with navigation to correct pages", () => {
     makeSut();
@@ -30,15 +45,17 @@ describe("<Navbar />", () => {
     expect(screen.getAllByRole("link")).toHaveLength(3);
   });
 
-  it("Should hide navigation as default and show after menu button click on small screens", () => {
+  it("Should toggle open menu state on button click", async () => {
     makeSut();
 
-    expect(screen.getByRole("navigation-list")).toHaveClass("opacity-0");
+    expect(screen.getByTestId("bars")).toBeInTheDocument();
+    expect(screen.queryByTestId("x")).not.toBeInTheDocument();
 
-    act(() => {
+    await act(() => {
       screen.getByRole("button").click();
     });
 
-    expect(screen.getByRole("navigation-list")).toHaveClass("opacity-100");
+    expect(screen.getByTestId("x")).toBeInTheDocument();
+    expect(screen.queryByTestId("bars")).not.toBeInTheDocument();
   });
 });

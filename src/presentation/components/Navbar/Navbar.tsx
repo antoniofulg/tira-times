@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Icons from "../Icons/Icons";
+import { Button, Icons } from "@/presentation/components";
 
 type NavbarProps = {
   pages: Page[];
@@ -23,21 +23,20 @@ const Navbar = ({ pages }: NavbarProps) => {
             Tira Times
           </span>
         </Link>
-        <button
+        <Button
           data-collapse-toggle="navbar-default"
-          type="button"
-          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded="false"
           onClick={() => setOpen((prev) => !prev)}
         >
           <Icons type={open ? "x" : "bars"} />
-        </button>
+        </Button>
         <div className="w-full md:block md:w-auto" id="navbar-default">
           <ul
-            className={`md:static md:flex flex-col p-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:z-auto z-40 left-0 w-full top-12 absolute transition-all duration-500 ease-in ${
-              open ? "opacity-100" : ""
-            } md:opacity-100 opacity-0`}
+            className={`md:static md:flex flex-col p-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:z-auto z-40 left-0 w-full top-12 absolute ${
+              open ? "" : "hidden"
+            }`}
             role="navigation-list"
           >
             {pages.map((page) => (
