@@ -6,7 +6,7 @@ import {
   EventFormInput,
   PlayersFormInput,
   RulesFormInput,
-} from "@/presentation/pages/MatchInfo/schemas/match-info";
+} from "@/presentation/pages/MatchInfo/schemas/match-info-schemas";
 
 type FormActionTypes =
   | {
