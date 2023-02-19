@@ -17,7 +17,7 @@ const Home = () => {
           <Card
             title="Criar lista"
             description="Insira as principais informações do seu racha para criar uma lista personalizada pronta para enviar para seu grupo."
-            link="/generate-list"
+            link="/match-info"
           />
         </div>
         <div className="lg:col-span-2">
