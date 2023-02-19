@@ -1,4 +1,4 @@
-import { Button } from "@/presentation/components";
+import { Button, Textarea } from "@/presentation/components";
 import {
   RulesFormInput,
   rulesFormSchema,
@@ -30,19 +30,13 @@ const RulesForm = ({ onSubmit, prevStep, defaultValues }: RulesFormProps) => {
     <form onSubmit={handleSubmit(submitHandler)}>
       <div className="grid grid-cols-1">
         <div>
-          <label
-            htmlFor="message"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Regras
-          </label>
-          <textarea
-            id="message"
-            rows={4}
-            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-7"
+          <Textarea
+            id="rules"
+            label="Regras"
+            rows={12}
             placeholder="Pagamento deve ..."
             {...register("rules")}
-          ></textarea>
+          ></Textarea>
         </div>
       </div>
       <div className="flex justify-between">

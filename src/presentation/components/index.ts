@@ -5,3 +5,4 @@ export { default as Icons } from "./Icons/Icons";
 export { default as Input } from "./Input/Input";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as Stepper } from "./Stepper/Stepper";
+export { default as Textarea } from "./Textarea/Textarea";
