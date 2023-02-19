@@ -29,15 +29,13 @@ const RulesForm = ({ onSubmit, prevStep, defaultValues }: RulesFormProps) => {
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
       <div className="grid grid-cols-1">
-        <div>
-          <Textarea
-            id="rules"
-            label="Regras"
-            rows={12}
-            placeholder="Pagamento deve ..."
-            {...register("rules")}
-          ></Textarea>
-        </div>
+        <Textarea
+          id="rules"
+          label="Regras"
+          rows={12}
+          placeholder="Pagamento deve ..."
+          {...register("rules")}
+        ></Textarea>
       </div>
       <div className="flex justify-between">
         <Button color="secondary" onClick={prevStep}>
