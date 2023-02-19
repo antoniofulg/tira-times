@@ -70,3 +70,5 @@ export const rulesFormInitialValues = {
 };
 
 export type RulesFormInput = z.input<typeof rulesFormSchema>;
+
+export type MatchInfoInput = EventFormInput & PlayersFormInput & RulesFormInput;

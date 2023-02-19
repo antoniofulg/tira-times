@@ -3,29 +3,43 @@ import { updateFields } from "@/utils";
 import {
   eventFormInitialValues,
   EventFormInput,
+  MatchInfoInput,
   playersFormInitialValues,
   PlayersFormInput,
   rulesFormInitialValues,
   RulesFormInput,
-} from "@/presentation/pages/MatchInfo/schemas/match-info";
+} from "@/presentation/pages/MatchInfo/schemas/match-info-schemas";
 import { useContext } from "react";
 import { EventForm, PlayersForm, RulesForm } from "./components";
 import { MatchInfoFormContext } from "@/presentation/pages/MatchInfo/context/MatchInfoFormContext";
+import { useNavigate } from "react-router-dom";
 
-const MatchInfoForm = () => {
+type MatchInfoFormProps = {
+  storeMatch: (params: MatchInfoInput) => void;
+};
+
+const MatchInfoForm = ({ storeMatch }: MatchInfoFormProps) => {
   const {
     state: { form, currentStep, steps },
     dispatch,
   } = useContext(MatchInfoFormContext);
+  const navigate = useNavigate();
 
-  const submitHandler = async () => {
-    // await saveGeneratedList.save(form);
-    alert("Salvo!");
+  const storeHandler = () => {
+    try {
+      storeMatch(form);
+      navigate("copy-list");
+    } catch {
+      alert("Não foi possível salvar a partida!");
+    }
   };
 
-  const nextStep = (
-    payload: EventFormInput | PlayersFormInput | RulesFormInput
-  ) => {
+  const submitHandler = (payload: RulesFormInput) => {
+    dispatch({ type: "UPDATE_FORM", payload });
+    storeHandler();
+  };
+
+  const nextStep = (payload: EventFormInput | PlayersFormInput) => {
     dispatch({
       type: "UPDATE_FORM",
       payload,
