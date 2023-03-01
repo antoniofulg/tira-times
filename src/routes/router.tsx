@@ -1,6 +1,5 @@
-import Main from "@/presentation/layouts/Main";
-import { MatchInfo, Home } from "@/presentation/pages";
-import CopyList from "@/presentation/pages/CopyList/CopyList";
+import Main from "@/layouts/Main";
+import { MatchInfo, Home, CopyList } from "@/pages";
 import { createBrowserRouter } from "react-router-dom";
 
 export default createBrowserRouter([
