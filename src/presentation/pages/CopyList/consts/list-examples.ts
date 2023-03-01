@@ -1,4 +1,6 @@
-export const simpleListExample = `Local: Quadra X
+export const simpleListExample = `Racha Y
+
+Local: Quadra X
 
 Data: 12/12 - Terça-feira
 
@@ -22,7 +24,9 @@ Regras
 
 [...]`;
 
-export const styledListExample = `🪧 Quadra X 🪧
+export const styledListExample = `Racha Y
+
+🪧 Quadra X 🪧
 
 📅 12/12 - Quarta-feira 📅
 
