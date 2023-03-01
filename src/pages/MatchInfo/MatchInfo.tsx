@@ -1,6 +1,6 @@
 import { MatchInfoFormProvider } from "./context/MatchInfoFormContext";
 import MatchInfoForm from "./components/MatchInfoForm/MatchInfoForm";
-import { storeMatchInfo } from "./actions/set-match-info";
+import { storeMatchInfo } from "./features/set-match-info";
 
 const MatchInfo = () => {
   return (

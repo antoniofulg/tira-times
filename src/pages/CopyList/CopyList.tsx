@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { getMatchInfo } from "./actions/get-match-info";
+import { getMatchInfo } from "./features/get-match-info";
 import CopyListForm from "./components/CopyListForm/CopyListForm";
 import NoListFound from "./components/NoListFound/NoListFound";
 import {
