@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import { forwardRef, useId } from "react";
 
-type InputProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
+type TextProps = React.DetailedHTMLProps<
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  HTMLTextAreaElement
 > & {
   label: string;
   error?: string | boolean;
@@ -11,12 +11,11 @@ type InputProps = React.DetailedHTMLProps<
   hint?: string;
 };
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const Textarea = forwardRef<HTMLTextAreaElement, TextProps>(
   (
     {
       id,
       label,
-      type = "text",
       error = false,
       className,
       disabled = false,
@@ -25,10 +24,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       readOnly = false,
       hint = "",
       ...props
-    }: InputProps,
+    },
     ref
   ) => {
-    const inputId = id || useId();
+    const textareaId = id || useId();
 
     const labelClass = classNames("label", {
       disabled,
@@ -36,8 +35,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       valid,
     });
 
-    const inputClass = classNames(
-      "input",
+    const textareaClass = classNames(
+      "textarea",
       {
         disabled,
         error,
@@ -58,15 +57,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className={showHintText ? "mb-2" : "mb-7"}>
-        <label htmlFor={inputId} className={labelClass}>
+        <label htmlFor={textareaId} className={labelClass}>
           {label}
           {required && <span className="text-red-600">*</span>}
         </label>
-        <input
-          id={inputId}
-          className={inputClass}
+        <textarea
+          id={textareaId}
+          className={textareaClass}
           disabled={disabled}
-          type={type}
           required={required}
           readOnly={readOnly}
           {...props}
@@ -82,6 +80,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
 
-export default Input;
+export default Textarea;

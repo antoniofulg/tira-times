@@ -28,7 +28,7 @@ const MatchInfoForm = ({ storeMatch }: MatchInfoFormProps) => {
   const storeHandler = () => {
     try {
       storeMatch(form);
-      navigate("copy-list");
+      navigate("/copy-list");
     } catch {
       alert("Não foi possível salvar a partida!");
     }

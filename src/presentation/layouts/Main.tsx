@@ -5,7 +5,7 @@ const Main = () => {
   return (
     <>
       <Header />
-      <main className="h-screen bg-white dark:bg-gray-900">
+      <main className="h-full min-h-screen bg-white dark:bg-gray-900">
         <Outlet />
       </main>
     </>

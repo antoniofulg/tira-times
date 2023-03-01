@@ -1,5 +1,6 @@
 import Main from "@/presentation/layouts/Main";
 import { MatchInfo, Home } from "@/presentation/pages";
+import CopyList from "@/presentation/pages/CopyList/CopyList";
 import { createBrowserRouter } from "react-router-dom";
 
 export default createBrowserRouter([
@@ -14,6 +15,10 @@ export default createBrowserRouter([
       {
         path: "match-info",
         element: <MatchInfo />,
+      },
+      {
+        path: "copy-list",
+        element: <CopyList />,
       },
     ],
   },
