@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
 
-vi.mock("@/presentation/components/Navbar/Navbar.tsx", () => ({
+vi.mock("@/components/Navbar/Navbar.tsx", () => ({
   __esModule: true,
   default: function Mock() {
     return <div data-testid="navbar" />;

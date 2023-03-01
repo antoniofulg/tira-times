@@ -18,14 +18,14 @@ const makeSut = () => {
   render(<Navbar pages={pages} />, { wrapper: BrowserRouter });
 };
 
-vi.mock("@/presentation/components/Icons/components/X/X.tsx", () => ({
+vi.mock("@/components/Icons/components/X/X.tsx", () => ({
   __esModule: true,
   default: function Mock() {
     return <div data-testid="x" />;
   },
 }));
 
-vi.mock("@/presentation/components/Icons/components/Bars/Bars.tsx", () => ({
+vi.mock("@/components/Icons/components/Bars/Bars.tsx", () => ({
   __esModule: true,
   default: function Mock() {
     return <div data-testid="bars" />;
