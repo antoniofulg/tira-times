@@ -8,7 +8,7 @@ import {
   simpleListExample,
   styledListExample,
 } from "@/presentation/pages/CopyList/consts/list-examples";
-import { Button } from "@/presentation/components";
+import { Button } from "@/components";
 
 type CopyListFormProps = {
   onSubmit: (data: CopyListFormInput) => void;

@@ -3,7 +3,7 @@ import {
   MatchInfoFormActions,
   matchInfoFormReducer,
 } from "@/presentation/pages/MatchInfo/hooks/MatchInfoFormReducer";
-import { Step } from "@/presentation/components/Stepper/Stepper";
+import { Step } from "@/components/Stepper/Stepper";
 import {
   eventFormInitialValues,
   EventFormInput,

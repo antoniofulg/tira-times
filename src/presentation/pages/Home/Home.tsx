@@ -1,4 +1,4 @@
-import { Card } from "@/presentation/components";
+import { Card } from "@/components";
 
 const Home = () => {
   return (

@@ -1,4 +1,4 @@
-import { Header } from "@/presentation/components";
+import { Header } from "@/components";
 import { Outlet } from "react-router-dom";
 
 const Main = () => {

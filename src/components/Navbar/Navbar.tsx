@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Icons } from "@/presentation/components";
+import { Button, Icons } from "@/components";
 
 type NavbarProps = {
   pages: Page[];

@@ -1,4 +1,4 @@
-import { Stepper } from "@/presentation/components";
+import { Stepper } from "@/components";
 import { updateFields } from "@/utils";
 import {
   eventFormInitialValues,

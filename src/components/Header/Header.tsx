@@ -1,4 +1,4 @@
-import { Navbar } from "@/presentation/components";
+import { Navbar } from "@/components";
 
 const Header = () => {
   const pages = [

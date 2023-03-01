@@ -1,4 +1,4 @@
-import { Button, Input } from "@/presentation/components";
+import { Button, Input } from "@/components";
 import {
   PlayersFormInput,
   playersFormSchema,

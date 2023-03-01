@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { IconProps } from "@/presentation/components/Icons/Icons";
+import { IconProps } from "@/components/Icons/Icons";
 
 const X = ({ className }: IconProps) => {
   const iconClass = classNames("icon", className);

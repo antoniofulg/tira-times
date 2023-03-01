@@ -1,4 +1,4 @@
-import { Button, Textarea } from "@/presentation/components";
+import { Button, Textarea } from "@/components";
 import {
   RulesFormInput,
   rulesFormSchema,
