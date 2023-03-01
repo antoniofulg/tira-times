@@ -8,10 +8,10 @@ import {
   PlayersFormInput,
   rulesFormInitialValues,
   RulesFormInput,
-} from "@/presentation/pages/MatchInfo/schemas/match-info-schemas";
+} from "@/pages/MatchInfo/schemas/match-info-schemas";
 import { useContext } from "react";
 import { EventForm, PlayersForm, RulesForm } from "./components";
-import { MatchInfoFormContext } from "@/presentation/pages/MatchInfo/context/MatchInfoFormContext";
+import { MatchInfoFormContext } from "@/pages/MatchInfo/context/MatchInfoFormContext";
 import { useNavigate } from "react-router-dom";
 
 type MatchInfoFormProps = {

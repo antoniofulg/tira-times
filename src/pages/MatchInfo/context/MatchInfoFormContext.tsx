@@ -2,7 +2,7 @@ import { createContext, Dispatch, ReactNode, useReducer } from "react";
 import {
   MatchInfoFormActions,
   matchInfoFormReducer,
-} from "@/presentation/pages/MatchInfo/hooks/MatchInfoFormReducer";
+} from "@/pages/MatchInfo/hooks/MatchInfoFormReducer";
 import { Step } from "@/components/Stepper/Stepper";
 import {
   eventFormInitialValues,
@@ -11,7 +11,7 @@ import {
   PlayersFormInput,
   rulesFormInitialValues,
   RulesFormInput,
-} from "@/presentation/pages/MatchInfo/schemas/match-info-schemas";
+} from "@/pages/MatchInfo/schemas/match-info-schemas";
 
 export type MatchInfoContextState = {
   form: EventFormInput & PlayersFormInput & RulesFormInput;

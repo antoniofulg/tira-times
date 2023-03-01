@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { copyListInitialValues } from "@/presentation/pages/CopyList/schemas/copy-list-schemas";
+import { copyListInitialValues } from "@/pages/CopyList/schemas/copy-list-schemas";
 import CopyListForm from "./CopyListForm";
 
 const onSubmit = vi.fn(() => null);

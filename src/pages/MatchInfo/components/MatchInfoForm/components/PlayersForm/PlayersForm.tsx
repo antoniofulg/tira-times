@@ -2,7 +2,7 @@ import { Button, Input } from "@/components";
 import {
   PlayersFormInput,
   playersFormSchema,
-} from "@/presentation/pages/MatchInfo/schemas/match-info-schemas";
+} from "@/pages/MatchInfo/schemas/match-info-schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 

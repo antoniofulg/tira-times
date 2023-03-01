@@ -1,12 +1,12 @@
 import {
   MatchInfoContextState,
   initialValues,
-} from "@/presentation/pages/MatchInfo/context/MatchInfoFormContext";
+} from "@/pages/MatchInfo/context/MatchInfoFormContext";
 import {
   EventFormInput,
   PlayersFormInput,
   RulesFormInput,
-} from "@/presentation/pages/MatchInfo/schemas/match-info-schemas";
+} from "@/pages/MatchInfo/schemas/match-info-schemas";
 
 type FormActionTypes =
   | {

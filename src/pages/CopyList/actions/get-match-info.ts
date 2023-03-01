@@ -1,4 +1,4 @@
-import { MatchInfoInput } from "@/presentation/pages/MatchInfo/schemas/match-info-schemas";
+import { MatchInfoInput } from "@/pages/MatchInfo/schemas/match-info-schemas";
 
 export const getMatchInfo = () => {
   const matchInfo = localStorage.getItem("match-info");
