@@ -22,11 +22,23 @@ describe("<CopyListForm />", () => {
     expect(onSubmit).not.toBeCalled();
   });
 
-  it("Should onSubmit when form is filled", async () => {
+  it("Should submit when simple option is selected", async () => {
     makeSut();
 
     await act(() => {
       screen.getAllByRole("radio")[0].click();
+
+      fireEvent.submit(screen.getByRole("button"));
+    });
+
+    expect(onSubmit).toBeCalled();
+  });
+
+  it("Should submit when styled option is selected", async () => {
+    makeSut();
+
+    await act(() => {
+      screen.getAllByRole("radio")[1].click();
 
       fireEvent.submit(screen.getByRole("button"));
     });
