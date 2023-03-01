@@ -1,12 +1,12 @@
 import { MatchInfoFormProvider } from "./context/MatchInfoFormContext";
 import MatchInfoForm from "./components/MatchInfoForm/MatchInfoForm";
-import { storeMatch } from "./actions/match-info";
+import { storeMatchInfo } from "./actions/set-match-info";
 
 const MatchInfo = () => {
   return (
     <MatchInfoFormProvider>
       <div className="container px-4 pt-8 mx-auto">
-        <MatchInfoForm storeMatch={storeMatch} />
+        <MatchInfoForm onSubmit={storeMatchInfo} />
       </div>
     </MatchInfoFormProvider>
   );

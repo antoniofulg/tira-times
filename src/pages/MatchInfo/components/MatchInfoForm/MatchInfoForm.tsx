@@ -15,10 +15,10 @@ import { MatchInfoFormContext } from "@/pages/MatchInfo/context/MatchInfoFormCon
 import { useNavigate } from "react-router-dom";
 
 type MatchInfoFormProps = {
-  storeMatch: (params: MatchInfoInput) => void;
+  onSubmit: (params: MatchInfoInput) => void;
 };
 
-const MatchInfoForm = ({ storeMatch }: MatchInfoFormProps) => {
+const MatchInfoForm = ({ onSubmit }: MatchInfoFormProps) => {
   const {
     state: { form, currentStep, steps },
     dispatch,
@@ -27,7 +27,7 @@ const MatchInfoForm = ({ storeMatch }: MatchInfoFormProps) => {
 
   const storeHandler = () => {
     try {
-      storeMatch(form);
+      onSubmit(form);
       navigate("/copy-list");
     } catch {
       alert("Não foi possível salvar a partida!");

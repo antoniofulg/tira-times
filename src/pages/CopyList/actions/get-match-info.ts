@@ -1,7 +1,4 @@
 import { MatchInfoInput } from "@/pages/MatchInfo/schemas/match-info-schemas";
+import { getStorageItem } from "@/services/storage/local-storage";
 
-export const getMatchInfo = () => {
-  const matchInfo = localStorage.getItem("match-info");
-  if (matchInfo === null) return matchInfo;
-  return JSON.parse(matchInfo) as MatchInfoInput;
-};
+export const getMatchInfo = () => getStorageItem<MatchInfoInput>("match-info");
