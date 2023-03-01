@@ -7,7 +7,7 @@ import {
 import {
   simpleListExample,
   styledListExample,
-} from "@/presentation/pages/CopyList/placeholders/list-examples";
+} from "@/presentation/pages/CopyList/consts/list-examples";
 import { Button } from "@/presentation/components";
 
 type CopyListFormProps = {
