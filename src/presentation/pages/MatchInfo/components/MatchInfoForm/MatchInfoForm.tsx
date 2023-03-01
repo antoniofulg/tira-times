@@ -1,5 +1,5 @@
 import { Stepper } from "@/components";
-import { updateFields } from "@/utils";
+import { updateFields } from "@/shared";
 import {
   eventFormInitialValues,
   EventFormInput,

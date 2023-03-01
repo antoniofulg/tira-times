@@ -1,4 +1,4 @@
-import { ObjectExtender } from "@/utils/types";
+import { ObjectExtender } from "@/shared/types";
 
 export const intTransformer = (value: string) => {
   const parsedValue = parseInt(value);

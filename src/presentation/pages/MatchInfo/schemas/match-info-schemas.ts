@@ -1,4 +1,4 @@
-import { intTransformer } from "@/utils";
+import { intTransformer } from "@/shared";
 import { z } from "zod";
 
 export const eventFormSchema = z.object({
