@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { getMatchInfo } from "./features/get-match-info";
-import CopyListForm from "./components/CopyListForm/CopyListForm";
+import CopyListForm from "./components/ChooseListStyleForm/ChooseListStyleForm";
 import NoListFound from "./components/NoListFound/NoListFound";
 import {
   CopyListFormInput,

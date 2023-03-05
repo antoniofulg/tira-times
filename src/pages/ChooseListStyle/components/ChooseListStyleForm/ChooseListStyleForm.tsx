@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import {
   CopyListFormInput,
   copyListFormSchema,
-} from "@/pages/CopyList/schemas/copy-list-schemas";
+} from "@/pages/ChooseListStyle/schemas/copy-list-schemas";
 import {
   simpleListExample,
   styledListExample,
-} from "@/pages/CopyList/consts/list-examples";
+} from "@/pages/ChooseListStyle/consts/list-examples";
 import { Button } from "@/components";
 
 type CopyListFormProps = {
