@@ -1,27 +1,30 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
-  CopyListFormInput,
-  copyListFormSchema,
-} from "@/pages/ChooseListStyle/schemas/copy-list-schemas";
+  ChooseListStyleFormInput,
+  chooseListStyleFormSchema,
+} from "@/pages/ChooseListStyle/schemas/choose-list-style-schemas";
 import {
   simpleListExample,
   styledListExample,
 } from "@/pages/ChooseListStyle/consts/list-examples";
 import { Button } from "@/components";
 
-type CopyListFormProps = {
-  onSubmit: (data: CopyListFormInput) => void;
-  defaultValues: CopyListFormInput;
+type ChooseListStyleFormProps = {
+  onSubmit: (data: ChooseListStyleFormInput) => void;
+  defaultValues: ChooseListStyleFormInput;
 };
 
-const CopyListForm = ({ onSubmit, defaultValues }: CopyListFormProps) => {
+const ChooseListStyleForm = ({
+  onSubmit,
+  defaultValues,
+}: ChooseListStyleFormProps) => {
   const { register, handleSubmit } = useForm({
-    resolver: zodResolver(copyListFormSchema),
+    resolver: zodResolver(chooseListStyleFormSchema),
     defaultValues,
   });
 
-  const submitHandler = (data: CopyListFormInput) => {
+  const submitHandler = (data: ChooseListStyleFormInput) => {
     onSubmit(data);
   };
 
@@ -75,4 +78,4 @@ const CopyListForm = ({ onSubmit, defaultValues }: CopyListFormProps) => {
   );
 };
 
-export default CopyListForm;
+export default ChooseListStyleForm;

@@ -1,17 +1,20 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { copyListInitialValues } from "@/pages/ChooseListStyle/schemas/copy-list-schemas";
-import CopyListForm from "./ChooseListStyleForm";
+import { chooseListStyleInitialValues } from "@/pages/ChooseListStyle/schemas/choose-list-style-schemas";
+import ChooseListStyleForm from "./ChooseListStyleForm";
 
 const onSubmit = vi.fn(() => null);
 
 const makeSut = () => {
   render(
-    <CopyListForm onSubmit={onSubmit} defaultValues={copyListInitialValues} />
+    <ChooseListStyleForm
+      onSubmit={onSubmit}
+      defaultValues={chooseListStyleInitialValues}
+    />
   );
 };
 
-describe("<CopyListForm />", () => {
+describe("<ChooseListStyleForm />", () => {
   it("Should not submit if form is not filled", async () => {
     makeSut();
 

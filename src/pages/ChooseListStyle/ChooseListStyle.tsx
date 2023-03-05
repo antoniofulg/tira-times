@@ -1,25 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import { getMatchInfo } from "./features/get-match-info";
-import CopyListForm from "./components/ChooseListStyleForm/ChooseListStyleForm";
+import ChooseListStyleForm from "./components/ChooseListStyleForm/ChooseListStyleForm";
 import NoListFound from "./components/NoListFound/NoListFound";
 import {
-  CopyListFormInput,
-  copyListInitialValues,
-} from "./schemas/copy-list-schemas";
+  ChooseListStyleFormInput,
+  chooseListStyleInitialValues,
+} from "./schemas/choose-list-style-schemas";
 
-const CopyList = () => {
+const ChooseListStyle = () => {
   const matchInfo = getMatchInfo();
   const navigate = useNavigate();
 
-  const submitHandler = (data: CopyListFormInput) => {
+  const submitHandler = (data: ChooseListStyleFormInput) => {
     navigate(`${data.type}`);
   };
 
   return (
     <div className="container px-4 pt-8 mx-auto">
       {matchInfo && (
-        <CopyListForm
-          defaultValues={copyListInitialValues}
+        <ChooseListStyleForm
+          defaultValues={chooseListStyleInitialValues}
           onSubmit={submitHandler}
         />
       )}
@@ -28,4 +28,4 @@ const CopyList = () => {
   );
 };
 
-export default CopyList;
+export default ChooseListStyle;
