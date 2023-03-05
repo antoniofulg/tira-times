@@ -1,5 +1,5 @@
 import { MainLayout } from "@/app/components/layouts";
-import { MatchInfo, Home, ChooseListStyle } from "@/pages";
+import { MatchInfo, Home, ChooseListStyle, CopyList } from "@/pages";
 import { createBrowserRouter } from "react-router-dom";
 
 export default createBrowserRouter([
@@ -18,6 +18,12 @@ export default createBrowserRouter([
       {
         path: "copy-list",
         element: <ChooseListStyle />,
+        children: [
+          {
+            path: ":style",
+            element: <CopyList />,
+          },
+        ],
       },
     ],
   },
