@@ -1,4 +1,4 @@
-import { playersFormInitialValues } from "@/pages/MatchInfo/schemas/match-info-schemas";
+import { playersFormInitialValues } from "@/pages/MatchInfo/schemas/match-info-form-schemas";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import PlayersForm from "./PlayersForm";

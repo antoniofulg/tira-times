@@ -8,7 +8,7 @@ import {
   PlayersFormInput,
   rulesFormInitialValues,
   RulesFormInput,
-} from "@/pages/MatchInfo/schemas/match-info-schemas";
+} from "@/pages/MatchInfo/schemas/match-info-form-schemas";
 import { useContext } from "react";
 import { EventForm, PlayersForm, RulesForm } from "./components";
 import { MatchInfoFormContext } from "@/pages/MatchInfo/context/MatchInfoFormContext";

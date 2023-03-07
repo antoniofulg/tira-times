@@ -1,4 +1,4 @@
-import { eventFormInitialValues } from "@/pages/MatchInfo/schemas/match-info-schemas";
+import { eventFormInitialValues } from "@/pages/MatchInfo/schemas/match-info-form-schemas";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import BasicInfoForm from "./EventForm";
