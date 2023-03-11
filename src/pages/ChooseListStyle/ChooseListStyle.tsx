@@ -1,7 +1,6 @@
 import { getMatchInfo } from "./features/get-match-info";
 import ChooseListStyleForm from "./components/ChooseListStyleForm/ChooseListStyleForm";
 import NoListFound from "./components/NoListFound/NoListFound";
-import { chooseListStyleInitialValues } from "./schemas/choose-list-style-schemas";
 import { parseMatchInfo } from "./schemas/match-info-schemas";
 
 const matchInfoInput = getMatchInfo();
@@ -15,11 +14,7 @@ const ChooseListStyle = () => {
   return (
     <div className="container px-4 pt-8 mx-auto">
       {matchInfo && (
-        <ChooseListStyleForm
-          matchInfo={matchInfo}
-          defaultValues={chooseListStyleInitialValues}
-          onSubmit={submitHandler}
-        />
+        <ChooseListStyleForm matchInfo={matchInfo} onSubmit={submitHandler} />
       )}
       {!matchInfo && <NoListFound />}
     </div>
