@@ -1,5 +1,5 @@
 import { MainLayout } from "@/app/components/layouts";
-import { MatchInfo, Home, ChooseListStyle } from "@/pages";
+import { ChooseListStyle, MatchInfo, Home, PasteList } from "@/pages";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -12,6 +12,7 @@ export default createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="match-info" element={<MatchInfo />} />
       <Route path="copy-list" element={<ChooseListStyle />} />
+      <Route path="paste-list" element={<PasteList />} />
     </Route>
   )
 );
