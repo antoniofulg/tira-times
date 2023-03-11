@@ -2,12 +2,16 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import { chooseListStyleInitialValues } from "@/pages/ChooseListStyle/schemas/choose-list-style-schemas";
 import ChooseListStyleForm from "./ChooseListStyleForm";
+import { MatchInfo } from "../../schemas/match-info-schemas";
 
 const onSubmit = vi.fn(() => null);
+
+const matchInfo = {} as MatchInfo;
 
 const makeSut = () => {
   render(
     <ChooseListStyleForm
+      matchInfo={matchInfo}
       onSubmit={onSubmit}
       defaultValues={chooseListStyleInitialValues}
     />

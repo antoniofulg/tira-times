@@ -4,28 +4,32 @@ import {
   ChooseListStyleFormInput,
   chooseListStyleFormSchema,
 } from "@/pages/ChooseListStyle/schemas/choose-list-style-schemas";
-import {
-  simpleListExample,
-  styledListExample,
-} from "@/pages/ChooseListStyle/consts/list-examples";
 import { Button } from "@/components";
+import { createList } from "@/pages/ChooseListStyle/features/create-simple-list";
+import { MatchInfo } from "@/pages/ChooseListStyle/schemas/match-info-schemas";
 
 type ChooseListStyleFormProps = {
-  onSubmit: (data: ChooseListStyleFormInput) => void;
+  onSubmit: (list: string) => void;
   defaultValues: ChooseListStyleFormInput;
+  matchInfo: MatchInfo;
 };
 
 const ChooseListStyleForm = ({
   onSubmit,
   defaultValues,
+  matchInfo,
 }: ChooseListStyleFormProps) => {
   const { register, handleSubmit } = useForm({
     resolver: zodResolver(chooseListStyleFormSchema),
     defaultValues,
   });
 
+  const simpleList = createList(matchInfo, "simple");
+  const styledList = createList(matchInfo, "styled");
+
   const submitHandler = (data: ChooseListStyleFormInput) => {
-    onSubmit(data);
+    if (data.type === "simple") onSubmit(simpleList);
+    else if (data.type === "styled") onSubmit(styledList);
   };
 
   return (
@@ -47,7 +51,7 @@ const ChooseListStyleForm = ({
             className="inline-flex justify-between w-full h-full p-5 overflow-auto text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <div className="flex align-top">
-              <pre className="w-full h-60 md:h-full">{simpleListExample}</pre>
+              <pre className="w-full h-60 md:h-full">{simpleList}</pre>
             </div>
           </label>
         </li>
@@ -64,7 +68,7 @@ const ChooseListStyleForm = ({
             className="inline-flex justify-between w-full h-full p-5 overflow-auto text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <div className="flex align-top">
-              <pre className="w-full h-60 md:h-full">{styledListExample}</pre>
+              <pre className="w-full h-60 md:h-full">{styledList}</pre>
             </div>
           </label>
         </li>

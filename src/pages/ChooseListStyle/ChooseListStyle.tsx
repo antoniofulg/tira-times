@@ -1,24 +1,22 @@
-import { useNavigate } from "react-router-dom";
 import { getMatchInfo } from "./features/get-match-info";
 import ChooseListStyleForm from "./components/ChooseListStyleForm/ChooseListStyleForm";
 import NoListFound from "./components/NoListFound/NoListFound";
-import {
-  ChooseListStyleFormInput,
-  chooseListStyleInitialValues,
-} from "./schemas/choose-list-style-schemas";
+import { chooseListStyleInitialValues } from "./schemas/choose-list-style-schemas";
+import { parseMatchInfo } from "./schemas/match-info-schemas";
+
+const matchInfoInput = getMatchInfo();
+const matchInfo = matchInfoInput ? parseMatchInfo(matchInfoInput) : null;
 
 const ChooseListStyle = () => {
-  const matchInfo = getMatchInfo();
-  const navigate = useNavigate();
-
-  const submitHandler = (data: ChooseListStyleFormInput) => {
-    navigate(`${data.type}`);
+  const submitHandler = (list: string) => {
+    navigator.clipboard.writeText(list);
   };
 
   return (
     <div className="container px-4 pt-8 mx-auto">
       {matchInfo && (
         <ChooseListStyleForm
+          matchInfo={matchInfo}
           defaultValues={chooseListStyleInitialValues}
           onSubmit={submitHandler}
         />
