@@ -3,6 +3,7 @@ import MatchInfoForm from "./components/MatchInfoForm/MatchInfoForm";
 import { storeMatchInfo } from "./features/set-match-info";
 import { useNavigate } from "react-router-dom";
 import { MatchInfoInput } from "./schemas/match-info-form-schemas";
+import { toast } from "react-toastify";
 
 const MatchInfo = () => {
   const navigate = useNavigate();
@@ -10,12 +11,10 @@ const MatchInfo = () => {
   const submitHandler = (matchInfo: MatchInfoInput) => {
     try {
       storeMatchInfo(matchInfo);
-      alert("Lista criada, selecione o estilo que você deseja!");
-      setTimeout(() => {
-        navigate("/copy-list");
-      }, 500);
+      toast.success("Lista criada, selecione o estilo que você deseja!");
+      navigate("/copy-list");
     } catch {
-      alert("Não foi possível salvar a partida!");
+      toast.error("Não foi possível salvar a partida, tente novamente!");
     }
   };
 

@@ -39,7 +39,9 @@ const ChooseListStyleForm = ({
             className="inline-flex justify-between w-full h-full p-5 overflow-auto text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <div className="flex align-top">
-              <pre className="w-full h-60 md:h-full">{simpleList}</pre>
+              <pre className="w-full h-72 md:h-full whitespace-pre-wrap">
+                {simpleList}
+              </pre>
             </div>
           </label>
         </li>
@@ -56,7 +58,9 @@ const ChooseListStyleForm = ({
             className="inline-flex justify-between w-full h-full p-5 overflow-auto text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <div className="flex align-top">
-              <pre className="w-full h-60 md:h-full">{styledList}</pre>
+              <pre className="w-full h-72 md:h-full whitespace-pre-wrap">
+                {styledList}
+              </pre>
             </div>
           </label>
         </li>
