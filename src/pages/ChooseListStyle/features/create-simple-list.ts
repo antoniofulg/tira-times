@@ -5,7 +5,6 @@ import dayjs from "dayjs";
 type ListStyle = "simple" | "styled";
 
 export const createList = (matchInfo: MatchInfo, type: ListStyle) => {
-  console.log(matchInfo);
   let list = `${matchInfo.matchName}\n`;
   list += "\n";
   list += getLocal(matchInfo.place, type);
