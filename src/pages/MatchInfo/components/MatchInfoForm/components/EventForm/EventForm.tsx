@@ -2,7 +2,7 @@ import { Button, Input } from "@/components";
 import {
   EventFormInput,
   eventFormSchema,
-} from "@/pages/MatchInfo/schemas/match-info-schemas";
+} from "@/pages/MatchInfo/schemas/match-info-form-schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 

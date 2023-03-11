@@ -11,7 +11,7 @@ import {
   PlayersFormInput,
   rulesFormInitialValues,
   RulesFormInput,
-} from "@/pages/MatchInfo/schemas/match-info-schemas";
+} from "@/pages/MatchInfo/schemas/match-info-form-schemas";
 
 export type MatchInfoContextState = {
   form: EventFormInput & PlayersFormInput & RulesFormInput;

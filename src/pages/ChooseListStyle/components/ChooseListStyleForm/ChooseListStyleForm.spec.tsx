@@ -1,34 +1,22 @@
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { copyListInitialValues } from "@/pages/ChooseListStyle/schemas/copy-list-schemas";
-import CopyListForm from "./ChooseListStyleForm";
+import ChooseListStyleForm from "./ChooseListStyleForm";
+import { MatchInfo } from "../../schemas/match-info-schemas";
 
 const onSubmit = vi.fn(() => null);
 
+const matchInfo = {} as MatchInfo;
+
 const makeSut = () => {
-  render(
-    <CopyListForm onSubmit={onSubmit} defaultValues={copyListInitialValues} />
-  );
+  render(<ChooseListStyleForm matchInfo={matchInfo} onSubmit={onSubmit} />);
 };
 
-describe("<CopyListForm />", () => {
-  it("Should not submit if form is not filled", async () => {
-    makeSut();
-
-    await act(() => {
-      fireEvent.submit(screen.getByRole("button"));
-    });
-
-    expect(onSubmit).not.toBeCalled();
-  });
-
+describe("<ChooseListStyleForm />", () => {
   it("Should submit when simple option is selected", async () => {
     makeSut();
 
     await act(() => {
-      screen.getAllByRole("radio")[0].click();
-
-      fireEvent.submit(screen.getByRole("button"));
+      screen.getAllByRole("button")[0].click();
     });
 
     expect(onSubmit).toBeCalled();
@@ -38,9 +26,7 @@ describe("<CopyListForm />", () => {
     makeSut();
 
     await act(() => {
-      screen.getAllByRole("radio")[1].click();
-
-      fireEvent.submit(screen.getByRole("button"));
+      screen.getAllByRole("button")[1].click();
     });
 
     expect(onSubmit).toBeCalled();
