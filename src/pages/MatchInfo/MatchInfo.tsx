@@ -13,7 +13,7 @@ const MatchInfo = () => {
       alert("Lista criada, selecione o estilo que você deseja!");
       setTimeout(() => {
         navigate("/copy-list");
-      }, 1000);
+      }, 500);
     } catch {
       alert("Não foi possível salvar a partida!");
     }
