@@ -23,7 +23,7 @@ const ChooseListStyleForm = ({
   return (
     <div className="w-full h-full pb-5">
       <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white">
-        Escolha o estilo da sua lista:
+        Clique no seu estilo preferido para para copar:
       </h3>
       <ul className="grid w-full gap-6 md:grid-cols-2">
         <li>
