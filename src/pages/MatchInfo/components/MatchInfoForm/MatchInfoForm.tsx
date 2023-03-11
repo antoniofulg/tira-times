@@ -12,7 +12,6 @@ import {
 import { useContext } from "react";
 import { EventForm, PlayersForm, RulesForm } from "./components";
 import { MatchInfoFormContext } from "@/pages/MatchInfo/context/MatchInfoFormContext";
-import { useNavigate } from "react-router-dom";
 
 type MatchInfoFormProps = {
   onSubmit: (params: MatchInfoInput) => void;
@@ -23,20 +22,10 @@ const MatchInfoForm = ({ onSubmit }: MatchInfoFormProps) => {
     state: { form, currentStep, steps },
     dispatch,
   } = useContext(MatchInfoFormContext);
-  const navigate = useNavigate();
-
-  const storeHandler = () => {
-    try {
-      onSubmit(form);
-      navigate("/copy-list");
-    } catch {
-      alert("Não foi possível salvar a partida!");
-    }
-  };
 
   const submitHandler = (payload: RulesFormInput) => {
     dispatch({ type: "UPDATE_FORM", payload });
-    storeHandler();
+    onSubmit({ ...form, ...payload });
   };
 
   const nextStep = (payload: EventFormInput | PlayersFormInput) => {
