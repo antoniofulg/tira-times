@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import NoListFound from "./NoListFound";
+import NoListFound from "./NoMatchInfoFound";
 
 const makeSut = () => {
   render(<NoListFound />, { wrapper: BrowserRouter });
