@@ -18,6 +18,8 @@ const makeSut = () => {
 };
 
 describe("<RulesForm />", () => {
+  beforeEach(() => vi.resetAllMocks());
+
   it("Should submit with empty form", async () => {
     makeSut();
 
