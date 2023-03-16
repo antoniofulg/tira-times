@@ -14,7 +14,7 @@ const PasteListForm = ({ onSubmit }: PasteListFormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(pasteListFormSchema),
     defaultValues: { matchList: "" },
@@ -35,6 +35,10 @@ const PasteListForm = ({ onSubmit }: PasteListFormProps) => {
           label="Lista do racha"
           rows={16}
           placeholder="Copie aqui..."
+          aria-invalid={errors.matchList ? "true" : "false"}
+          error={
+            errors?.matchList?.message && (errors?.matchList.message as string)
+          }
           {...register("matchList")}
         ></Textarea>
       </div>
