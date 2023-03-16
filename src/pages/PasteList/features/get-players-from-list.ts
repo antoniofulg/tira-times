@@ -8,14 +8,19 @@ export const getPlayersAndSubstitutes = (
   const players = playersStr
     .split("\n")
     .filter(
-      (player) => player.trim() !== "" && !/^\d+\s*$/.test(player.trim())
+      (player) =>
+        player.trim() !== "" &&
+        !/^\d+\s*$/.test(player.trim()) &&
+        !/^(\d+|\s*|\W*)$/.test(player.trim())
     );
 
   const startIndexSubs = list.indexOf("Suplentes") + "Suplentes".length + 1;
   const nextIndex = list.indexOf("Regras");
   const endIndex = nextIndex === -1 ? list.length : nextIndex;
   const subsStr = list.substring(startIndexSubs, endIndex);
-  const substitutes = subsStr.split("\n").filter((sub) => sub.trim() !== "");
+  const substitutes = subsStr
+    .split("\n")
+    .filter((sub) => sub.trim() !== "" && !/^(\d+|\s*|\W*)$/.test(sub.trim()));
 
   const playersAndSubstitutes = players
     .concat(substitutes)
@@ -27,6 +32,8 @@ export const getPlayersAndSubstitutes = (
       return { name: nameWithoutIndex, active };
     })
     .filter((player) => !!player.name);
+
+  console.log(playersAndSubstitutes);
 
   return playersAndSubstitutes;
 };
