@@ -3,6 +3,7 @@ import { vi } from "vitest";
 import {
   emptySimpleList,
   filledSimpleList,
+  filledStyledList,
 } from "@/pages/PasteList/consts/list-mock";
 import PasteListForm from "./PasteListForm";
 
@@ -13,6 +14,8 @@ const makeSut = () => {
 };
 
 describe("<PasteListForm />", () => {
+  beforeEach(() => vi.resetAllMocks());
+
   it("Should not submit with empty form", async () => {
     makeSut();
 
@@ -52,6 +55,26 @@ describe("<PasteListForm />", () => {
       fireEvent.input(screen.getByLabelText(/lista do racha/i), {
         target: {
           value: filledSimpleList,
+        },
+      });
+    });
+
+    await act(() => {
+      fireEvent.submit(
+        screen.getByRole("button", { name: /Importar jogadores/i })
+      );
+    });
+
+    expect(onSubmit).toBeCalled();
+  });
+
+  it("Should submit when a styled list is provided with players", async () => {
+    makeSut();
+
+    act(() => {
+      fireEvent.input(screen.getByLabelText(/lista do racha/i), {
+        target: {
+          value: filledStyledList,
         },
       });
     });

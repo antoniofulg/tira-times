@@ -33,7 +33,5 @@ export const getPlayersAndSubstitutes = (
     })
     .filter((player) => !!player.name);
 
-  console.log(playersAndSubstitutes);
-
   return playersAndSubstitutes;
 };

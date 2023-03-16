@@ -8,29 +8,25 @@ Replay
 
 Lista de Jogadores
 
-1 Player 1
-2 Player 2
-3 Player 3
-4 Player 4
-5 Player 5
-6 Player 6
-7 Player 7
-8 Player 8
-9 Player 9
-10 Player 10
-11 Player 11
-12 Player 12
-13 Player 13
-14 Player 14
-15 Player 15
-16 Player 16
+1 Joao
+2 Pedro
+3 Celso
+4 O Rei🏅
+5 Míto 
+6 
+7
+8 
 
 Suplentes
 
-1 Sub 1
-2 Sub 2
-3 Sub 3
-4 Sub 4`;
+1 Agnaldo1
+2 João 2
+3
+4 
+
+Regras
+
+Pagamento deve ser feito via PIX...`;
 
 export const emptySimpleList = `Racha da Firma
 
@@ -50,21 +46,17 @@ Lista de Jogadores
 6
 7
 8
-9
-10
-11
-12
-13
-14
-15
-16
 
 Suplentes
 
 1
 2
 3
-4`;
+4
+
+Regras
+
+Pagamento deve ser feito via PIX...`;
 
 export const filledStyledList = `Racha da Firma
 
@@ -76,29 +68,23 @@ export const filledStyledList = `Racha da Firma
 
 🗒️ Lista de Jogadores 🗒️
 
-1️⃣ Player 1
-2️⃣ Player 2
-3️⃣ Player 3
-4️⃣ Player 4
-5️⃣ Player 5
-6️⃣ Player 6
-7️⃣ Player 7
-8️⃣ Player 8
-9️⃣ Player 9
-1️⃣0️⃣ Player 10
-1️⃣1️⃣ Player 11
-1️⃣2️⃣ Player 12
-1️⃣3️⃣ Player 13
-1️⃣4️⃣ Player 14
-1️⃣5️⃣ Player 15
-1️⃣6️⃣ Player 16
+1️⃣ João
+2️⃣ Pedro
+3️⃣ Antonio
+4️⃣ O Rei 🏅
+5️⃣ Mito
+6️⃣ 
+7️⃣
+8️⃣
+9️⃣
+1️⃣0️⃣ Guilherme
 
 🔁 Suplentes 🔁
 
-1️⃣ Sub 1
-2️⃣ Sub 2
-3️⃣ Sub 3
-4️⃣ Sub 4
+1️⃣ Agnaldo1
+2️⃣ João 2
+3️⃣ 
+4️⃣
 
 📒 Regras 📒
 
